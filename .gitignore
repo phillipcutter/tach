@@ -1,0 +1,8 @@
+collector/bin/
+.build/
+*.xcuserstate
+DerivedData/
+.DS_Store
+build/
+/.dev-home/
+/collector/tach-collector

@@ -1,0 +1,1 @@
+{"sessionId":"gem-sess-0002","projectHash":"fakehash","startTime":"2026-11-19T10:00:00.000Z","messages":[{"id":"u-1","type":"user","content":"FAKE"},{"id":"g-9","timestamp":"2026-11-19T10:00:05.000Z","type":"gemini","content":"FAKE","tokens":{"input":30,"output":3,"cached":0,"thoughts":1,"tool":0,"total":34},"model":"gemini-2.5-pro"}]}

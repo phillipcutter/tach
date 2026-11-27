@@ -1,0 +1,47 @@
+name: Release
+
+# Push a tag like v0.2.0 to publish a release with a DMG.
+# Run it by hand to build a DMG as a workflow artifact without releasing.
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  dmg:
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: collector/go.mod
+          cache-dependency-path: collector/go.sum
+      - name: Version
+        run: |
+          if [ "$GITHUB_REF_TYPE" = "tag" ]; then v="${GITHUB_REF_NAME#v}"; else v="0.0.0-dev.$GITHUB_RUN_NUMBER"; fi
+          echo "TACH_VERSION=$v" >> "$GITHUB_ENV"
+          echo "TACH_BUILD=$GITHUB_RUN_NUMBER" >> "$GITHUB_ENV"
+      - name: Test
+        working-directory: app
+        run: swift test
+      - name: Build universal app
+        run: TACH_UNIVERSAL=1 scripts/build.sh
+      - name: Make DMG
+        run: |
+          scripts/make-dmg.sh
+          cd build && shasum -a 256 Tach-*.dmg > Tach-$TACH_VERSION.dmg.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Tach-${{ env.TACH_VERSION }}
+          path: build/Tach-*.dmg*
+      - name: Publish release
+        if: github.ref_type == 'tag'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" build/Tach-*.dmg build/Tach-*.dmg.sha256 \
+            --title "Tach $TACH_VERSION" --generate-notes --verify-tag \
+            --notes "Open the DMG and drag Tach to Applications. Tach is not notarized yet: on first launch, open it from System Settings → Privacy & Security → Open Anyway, or run \`xattr -dr com.apple.quarantine /Applications/Tach.app\`. Universal build for Apple silicon and Intel, macOS 14 or later."

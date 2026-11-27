@@ -1,0 +1,1202 @@
+<title>Tach Mockups</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+:root{color-scheme:dark;
+  /* canvas */
+  --cv-bg:#0D0F12;--cv-ink:#E7E9EC;--cv-ink2:#A2A8B1;--cv-ink3:#737A85;--cv-rule:rgba(255,255,255,.09);--cv-tile:#15181C;
+  /* app ink and surfaces (the app is dark in both viewer themes) */
+  --ink:rgba(255,255,255,.93);--ink2:rgba(255,255,255,.66);--ink3:rgba(255,255,255,.46);--ink4:rgba(255,255,255,.24);
+  --hair:rgba(255,255,255,.085);--hair2:rgba(255,255,255,.15);
+  --fill1:rgba(255,255,255,.055);--fill2:rgba(255,255,255,.095);--fill3:rgba(255,255,255,.16);
+  --pop:rgba(26,29,34,.66);--pop-solid:#1E2126;--win:#1B1D21;--field:rgba(0,0,0,.28);
+  --accent:#2F84F6;--focus:#7FB4FF;
+  /* limit state: neutral until it matters */
+  --lvl:#E3E8EE;--warn:#F4B13C;--crit:#FF5B4A;
+  /* identity: each subscription's brand hue, lightness steps per model */
+  --p-claude:#D97757;--p-codex:#4C8DF6;--p-anti:#10A37F;
+  --m-opus:#D97757;--m-mythos:#EBA689;--m-fable:#F8D9CB;--m-astra:#4C8DF6;--m-sol:#A3C6FB;--m-neon:#10A37F;
+  /* token types: neutral ramp, dark to light */
+  --t-cr:#434C5C;--t-c5:#66728A;--t-c1:#8C98AE;--t-in:#BBC5D4;--t-out:#F4F6F9;
+  --g1:#E6EAF0;--g2:#A9B2C0;--g3:#6F7A8C;--g4:#454D5B;
+  --ui:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif;
+  --mono:"SF Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cv-bg);color:var(--cv-ink);font:14px/1.5 var(--ui);-webkit-font-smoothing:antialiased}
+.page{max-width:1340px;margin:0 auto;padding-block:30px 72px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:5px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+/* ---------- canvas ---------- */
+.top h1{font:600 24px/1.2 var(--ui);letter-spacing:-.015em;margin:0 0 6px}
+.top h1 span+span{color:var(--cv-ink3);font-weight:400}
+.top p{margin:0;color:var(--cv-ink2);max-width:74ch;font-size:14px}
+.nav{position:sticky;top:env(safe-area-inset-top, 0px);z-index:40;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin:18px 0 0;padding:7px 0;background:rgba(13,15,18,.88);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--cv-rule)}
+.nav a{flex:none;color:var(--cv-ink2);text-decoration:none;font:500 13px/1 var(--ui);padding:8px 11px;border-radius:7px}
+.nav a:hover{color:var(--cv-ink);background:rgba(255,255,255,.07)}
+.blk{margin-top:56px;scroll-margin-top:54px}
+.blk>h2{font:600 18px/1.3 var(--ui);letter-spacing:-.01em;margin:0 0 4px}
+.why{margin:0 0 16px;color:var(--cv-ink2);font:400 13.5px/1.5 var(--ui);max-width:76ch}
+.cap,.mac .cap{font:600 14px/1.3 var(--ui);color:var(--cv-ink);margin:26px 0 4px}
+.mac .why{margin:0 0 16px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,372px),1fr));gap:28px 24px;align-items:start}
+.cols>div{min-width:0;scroll-margin-top:54px}
+.cols .cap{margin-top:0}
+.cmp table{border-collapse:collapse;width:100%;font-size:13px}
+.cmp th,.cmp td{text-align:left;vertical-align:top;padding:8px 10px 8px 0;border-top:1px solid var(--cv-rule);color:var(--cv-ink2);font-weight:400}
+.cmp th{color:var(--cv-ink3);font-size:12px;width:76px}
+.cmp thead th{border-top:0;color:var(--cv-ink);font-weight:600;font-size:13px}
+.scroller{overflow-x:auto;border-radius:14px}
+.endnote{margin-top:48px;padding-top:16px;border-top:1px solid var(--cv-rule);color:var(--cv-ink3);font-size:12.5px;max-width:80ch}
+.key{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:20px;padding:12px 14px;border:1px solid var(--cv-rule);border-radius:10px;background:var(--cv-tile);font-size:12px;color:var(--ink2)}
+.kg{display:flex;flex-wrap:wrap;align-items:center;gap:5px 12px;min-width:0}
+.kg>span{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.kt{color:var(--ink3);font-size:11px}
+.kbar .bar{width:96px}
+
+/* ---------- desktop stage ---------- */
+.stage{position:relative;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.07);background:radial-gradient(130% 100% at 12% 0%,#41607c 0%,#2a4159 30%,#172433 62%,#0e1620 100%)}
+.pstage{padding:0 0 22px;max-width:420px}
+.pstage .pop{margin:7px 10px 0 auto}
+.wstage{padding:34px;width:max-content;min-width:100%;display:grid;place-items:center}
+.flat{border-radius:10px}
+.pad{padding:18px;display:grid;place-items:center}
+
+/* ---------- app base ---------- */
+.mac{font:13px/1.35 var(--ui);color:var(--ink);font-variant-numeric:tabular-nums;text-align:left;-webkit-font-smoothing:antialiased}
+:where(.mac) button{appearance:none;font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:pointer;text-align:left}
+.mac h2,.mac h3,.mac h4,.mac h5,.mac p,.mac dl,.mac dd,.mac ol{margin:0;padding:0}
+.grow{flex:1}
+.dim{color:var(--ink3)}
+.mono{font-family:var(--mono);font-size:.94em;letter-spacing:-.01em}
+.num{font-family:var(--mono);font-size:.94em;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.pic{display:inline-block;flex:none;vertical-align:-4px;margin-right:6px}
+.pic.none{width:30px;height:30px;border-radius:7px;box-shadow:inset 0 0 0 1px var(--hair2);background:repeating-linear-gradient(135deg,transparent 0 4px,var(--fill1) 4px 8px)}
+.swm{display:inline-block;flex:none;width:8px;height:8px;border-radius:2.5px;margin-right:6px}
+.qm{display:inline-block;flex:none;margin-right:4px;color:var(--ink2);vertical-align:-1px}
+.lat{white-space:nowrap}
+.age{display:inline-flex;align-items:center;gap:5px;font:500 10.5px/1 var(--mono);color:var(--ink3);white-space:nowrap}
+.age i{width:5px;height:5px;border-radius:50%;background:var(--ink2)}
+.age.old i{background:none;box-shadow:0 0 0 1px var(--ink3)}
+.sec{display:flex;align-items:center;gap:8px;margin:14px 0 8px;min-height:22px;font:600 10.5px/1 var(--ui);letter-spacing:.06em;text-transform:uppercase;color:var(--ink3)}
+.sec>span:first-child{white-space:nowrap}
+.sec>i{flex:1;height:1px;background:var(--hair)}
+.sec .age{letter-spacing:0;text-transform:none}
+.sec-x{letter-spacing:0;text-transform:none;font-weight:500;color:var(--ink2);font-size:11px}
+.sd{display:inline-block;flex:none;width:7px;height:7px;border-radius:50%;background:var(--lvl);margin-right:6px}
+.sd.s-warn{background:var(--warn)}.sd.s-crit,.sd.s-limited{background:var(--crit)}
+.sd.s-stale,.sd.s-empty,.sd.s-idle{background:none;box-shadow:inset 0 0 0 1.2px var(--ink3)}
+.bar{display:block;position:relative;height:6px;border-radius:3px;background:var(--fill2);min-width:0}
+.bar i,.bar u{position:absolute;inset:0 auto 0 0;border-radius:3px;background:var(--lvl)}
+.bar u{opacity:.3}
+.bar b{position:absolute;top:-3px;bottom:-3px;width:2px;margin-left:-1px;border-radius:1px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.6)}
+.bar.s-warn i,.bar.s-warn u{background:var(--warn)}.bar.s-crit i,.bar.s-crit u,.bar.s-limited i{background:var(--crit)}
+.bar.s-stale i{background:repeating-linear-gradient(135deg,var(--ink3) 0 2px,var(--fill2) 2px 4px)}
+.bar.s-empty,.bar.s-idle{background:repeating-linear-gradient(90deg,var(--hair2) 0 3px,transparent 3px 6px)}
+.pb{display:block;height:4px;border-radius:2px;background:var(--fill1);overflow:hidden;min-width:0}
+.pb i{display:block;height:100%;border-radius:2px}
+.pb.thick{height:6px;border-radius:3px}
+.mix{display:flex;gap:1px;height:6px;border-radius:2px;overflow:hidden;min-width:0}
+.mix.tall{height:12px;border-radius:3px}.mix.mid{height:8px}
+.seg{display:inline-flex;padding:2px;border-radius:8px;background:var(--fill1);box-shadow:inset 0 0 0 .5px var(--hair)}
+.seg-b{height:20px;padding:0 8px;border-radius:6px;font:500 11.5px/20px var(--ui);color:var(--ink2);white-space:nowrap;text-align:center}
+.seg-b:hover{color:var(--ink)}
+.seg-b.on{background:var(--fill3);color:var(--ink);box-shadow:0 .5px 1.5px rgba(0,0,0,.35)}
+.seg.tight .seg-b{padding:0 6px}
+.seg.wide{display:flex}.seg.wide .seg-b{padding:0 2px}.seg.wide .seg-b{flex:1;height:22px;line-height:22px}
+.btn{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 12px;border-radius:13px;background:var(--fill2);font:500 12.5px/1 var(--ui);color:var(--ink);white-space:nowrap}
+.btn:hover{background:var(--fill3)}
+.btn.pri{background:var(--accent);color:#fff}.btn.pri:hover{filter:brightness(1.1)}
+.btn.sm{height:22px;padding:0 10px;font-size:11.5px}
+.ib{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;color:var(--ink2)}
+.ib:hover{background:var(--fill2);color:var(--ink)}
+.lnk{font:500 11px/1 var(--ui);letter-spacing:0;text-transform:none;color:var(--focus)}
+.ico{display:block;flex:none}
+.upd{font-size:11px;color:var(--ink3);white-space:nowrap}
+.kv{display:grid;gap:5px;font-size:12px}
+.kv>div{display:flex;justify-content:space-between;gap:12px;min-width:0}
+.kv dt{color:var(--ink3);white-space:nowrap}.kv dd{color:var(--ink);text-align:right;min-width:0;white-space:nowrap}
+.tag{display:inline-block;font:600 10px/1 var(--ui);letter-spacing:.04em;text-transform:uppercase;padding:4px 6px;border-radius:4px;background:var(--fill2);color:var(--ink2)}
+.tag.s-warn{background:rgba(244,177,60,.16);color:var(--warn)}.tag.s-crit,.tag.s-limited{background:rgba(255,91,74,.17);color:var(--crit)}
+.dot{display:inline-block;flex:none;width:7px;height:7px;border-radius:50%;background:var(--lvl);margin-right:7px}
+.dot.no{background:none;box-shadow:inset 0 0 0 1.2px var(--ink3)}
+.live{display:inline-flex;align-items:center;color:var(--ink);font-size:12px}
+.empty{display:grid;justify-items:center;gap:6px;text-align:center;padding:26px 18px;border:1px dashed var(--hair2);border-radius:10px;color:var(--ink3);font-size:12px}
+.empty b{color:var(--ink);font-size:13px;font-weight:600}
+.empty .btn{margin-top:8px}
+.note{font-size:12px;color:var(--ink2);margin-top:12px!important;line-height:1.45}
+.note b{color:var(--ink);font-weight:500}
+.lg{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:11.5px;color:var(--ink2)}
+.lg>span{display:inline-flex;align-items:center;white-space:nowrap}
+.lg .pic{margin-right:5px}.lg b{font-weight:500;color:var(--ink);margin-left:5px}
+.s-warn{--sc:var(--warn)}.s-crit,.s-limited{--sc:var(--crit)}
+.ch,.tj,.ring{display:block;max-width:100%}
+.ch .g,.tj .g{stroke:var(--hair)}
+.tj .lim,.ch .lim{stroke:var(--ink3)}
+.ax{font:10px var(--mono);fill:var(--ink3);letter-spacing:-.02em}
+.ax.hi{fill:var(--ink2)}
+.pace{stroke:var(--ink3);stroke-dasharray:1.5 3.5}
+.now{stroke:var(--hair2)}
+.mk{stroke:var(--ink);stroke-dasharray:2 2}
+.ring-n.old{fill:var(--ink3)}
+.ring-n{font:600 17px var(--ui);fill:var(--ink);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.ring-s{font:500 10px var(--ui);fill:var(--ink3)}
+
+/* ---------- menu bar ---------- */
+.mb{height:24px;display:flex;align-items:center;gap:1px;padding:0 8px 0 12px;color:#fff;background:rgba(8,12,18,.3);font:500 13px/1 var(--ui);white-space:nowrap}
+.mb-l{flex:1;min-width:0;display:flex;gap:18px;overflow:hidden;font-weight:400;-webkit-mask-image:linear-gradient(90deg,#000 55%,transparent);mask-image:linear-gradient(90deg,#000 55%,transparent)}
+.mb-l b{font-weight:700}
+.mb-i{display:inline-flex;align-items:center;height:22px;padding:0 7px;border-radius:6px}
+.mb-i.on{background:rgba(255,255,255,.2)}
+.mb-sys{display:inline-flex;padding:0 6px;opacity:.95}
+.mb-clock{padding:0 4px 0 7px;font-weight:500;font-variant-numeric:tabular-nums}
+.mbx{display:inline-flex;align-items:center;color:#fff;font-family:var(--ui);font-weight:500;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
+.mbx svg{display:block;flex:none}
+.mb-n.dim{color:rgba(255,255,255,.6)}
+.mb-n.s-crit,.mb-n.s-limited{color:var(--crit)}
+.mbg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+@media (max-width:900px){.mbg{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.mbg{grid-template-columns:1fr}}
+.mbc{min-width:0;border:1px solid var(--cv-rule);border-radius:12px;background:var(--cv-tile);overflow:hidden}
+.mbc h4{font:600 13px/1.3 var(--ui);color:var(--cv-ink);margin:10px 12px 2px}
+.mbc p{margin:0 12px 12px;font:400 12.5px/1.4 var(--ui);color:var(--cv-ink2)}
+.mbc-z{height:92px;display:grid;place-items:center;background:radial-gradient(130% 120% at 15% 0%,#3c5871,#1b2a3a 70%)}
+.mbc-z.sm{height:64px;border-radius:10px}
+.mbc-s{background:#1b2a3a;border-top:1px solid rgba(255,255,255,.06)}
+.mb.mini .mb-clock{display:none}
+.mbst{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:10px}
+.mbst>div{display:grid;gap:6px;min-width:0}
+.mbst .lb{font:500 12.5px/1.2 var(--ui);color:var(--cv-ink2)}
+
+/* ---------- popover ---------- */
+.pop{width:348px;border-radius:16px;padding:0 12px;background:var(--pop);-webkit-backdrop-filter:blur(38px) saturate(170%);backdrop-filter:blur(38px) saturate(170%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.13),0 0 0 .5px rgba(0,0,0,.7),0 22px 60px rgba(0,0,0,.5);font-size:12px}
+.pop-h{display:flex;align-items:center;gap:8px;height:40px;font-size:13px}
+.pop-h b{font-weight:600}
+.pop-f{display:flex;align-items:center;gap:4px;height:48px;margin-top:12px;border-top:1px solid var(--hair)}
+.pop-f .upd{margin-right:4px}
+.rings{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:0 -6px}
+.rcell{display:grid;justify-items:center;gap:2px;padding:8px 4px 8px;border-radius:11px;min-width:0}
+.rcell:hover{background:var(--fill1)}
+.rcell.on{background:var(--fill1);box-shadow:inset 0 0 0 1px var(--hair2)}
+.rc-h{display:flex;align-items:center;gap:6px;font-weight:600;font-size:12.5px;margin-bottom:5px}
+.rc-s{font-size:11.5px;color:var(--ink);margin-top:5px;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+.rc-t{font-size:10.5px;color:var(--ink3);white-space:nowrap}
+.acct .pic,.rc-h .pic,.hero-k .pic,.w2 .pic,.w2c .pic,.or .pic,.bk .pic,.ld-h .pic,.md-h .pic,.sr .pic{margin-right:0}
+.acct{display:flex;align-items:center;gap:7px;height:24px;font-size:12px}
+.acct b{font-weight:600}.acct .dim{font-size:11.5px}
+.pool{font-size:11px;color:var(--ink3);margin-top:5px;height:18px;line-height:18px}
+.ov-w .pool{margin:0 0 -4px}.lm-g .pool{margin:6px 0 -2px}
+.lg-a{display:grid;min-width:0}
+.lr{display:grid;grid-template-columns:116px 1fr 34px 46px;gap:8px;align-items:center;height:21px;width:calc(100% + 12px);margin:0 -6px;padding:0 6px;border-radius:6px}
+.lr:hover{background:var(--fill1)}
+.lr.on{background:var(--fill1)}
+.lr-l{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lr b{font-weight:500;text-align:right}
+.lr em{font-style:normal;text-align:right;color:var(--ink3);font-size:10.5px}
+.lr.s-stale .lr-l,.lr.s-idle .lr-l,.lr.s-stale b,.lr.s-idle b{color:var(--ink2)}
+.lrd{display:grid;gap:3px;margin:0 -6px 4px;padding:3px 6px 7px;border-radius:0 0 6px 6px;background:var(--fill1);font-size:11px;color:var(--ink2);line-height:1.35}
+.lr.on{border-radius:6px 6px 0 0}
+.lrd i{font-style:normal;color:var(--ink4);margin:0 5px}
+.lrv b{font-weight:600}
+.lrd.s-warn .lrv,.lrd.s-crit .lrv,.lrd.s-limited .lrv{color:var(--sc)}
+.cr{display:flex;align-items:baseline;gap:8px;height:21px;font-size:12px;white-space:nowrap;min-width:0}
+.cr .dim{flex:1;font-size:11px;overflow:hidden;text-overflow:ellipsis}
+.cr b{font-weight:500}
+.quiet{margin:8px 0 0!important;font-size:11px;line-height:1.4;color:var(--ink3)}
+.zero{color:var(--ink3)}
+.lg.ql{font-size:10.5px;color:var(--ink3);gap:3px 10px}
+.wr1{display:grid;grid-template-columns:82px 1fr 36px;align-items:center;gap:8px}
+.wl{font-weight:500;font-size:12px;white-space:nowrap}
+.wr1 b{text-align:right;font-weight:500}
+.wr3{font-size:11px;color:var(--ink3);line-height:1.35}
+.wr3 b{font-weight:500;color:var(--ink2)}
+.wr3.s-warn,.wr3.s-crit,.wr3.s-limited{color:var(--sc)}.wr3.s-warn b,.wr3.s-crit b,.wr3.s-limited b{color:var(--sc);font-weight:600}
+.mtot{display:flex;flex-wrap:wrap;gap:2px 14px;margin-bottom:8px;color:var(--ink2);font-size:11.5px}
+.mtot b{color:var(--ink);font-weight:500;font-size:12.5px}
+.ml{margin-top:8px}
+.mlh,.mr{display:grid;grid-template-columns:118px 1fr 44px 48px 46px;gap:8px;align-items:center;height:20px}
+.mlh{font-size:10.5px;color:var(--ink3);height:18px}
+.mlh span:nth-child(n+3),.mr .num{text-align:right}
+.mn .pic{margin-right:6px}
+.btr .mn .pic{margin-right:5px}.btr .swm{margin-right:5px}
+.mn{display:flex;align-items:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fr{display:grid;grid-template-columns:auto 104px 40px 1fr 56px 30px;gap:6px;align-items:center;height:22px}
+.fr .dot{margin-right:2px}
+.fr .pb{grid-column:5}.fr .ft{grid-column:4;text-align:right}.fr .fp{text-align:right;color:var(--ink2)}
+.fs{color:var(--ink2);font-size:11px;white-space:nowrap}
+.fr.off .fn{color:var(--ink3)}
+.fs.old{grid-column:3/-1;color:var(--ink3);text-align:right}
+/* B */
+.popB{padding-top:12px}
+.hero-k{display:flex;align-items:center;gap:7px;color:var(--ink2);font-size:12px}
+.hero-v{font:600 21px/1.2 var(--ui);letter-spacing:-.02em;margin:9px 0 4px}
+.hero-v b{font-weight:600}
+.hero.s-warn .hero-v b,.hero.s-crit .hero-v b,.hero.s-limited .hero-v b{color:var(--sc)}
+.hero-s{color:var(--ink2);font-size:11.5px;line-height:1.4;margin-bottom:8px!important}
+.tabs{margin:12px 0 8px}
+.b-body{min-height:316px}
+.w2s{display:grid;gap:1px;margin:0 -6px}
+.w2{display:grid;grid-template-columns:18px minmax(0,1fr) 62px 34px;gap:8px;align-items:center;padding:5px 6px;border-radius:9px;width:100%}
+.w2:hover{background:var(--fill1)}
+.w2.on{background:var(--fill2)}
+.w2t{display:grid;gap:2px;min-width:0}
+.w2n{font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.w2n em{font-style:normal;font-weight:400;color:var(--ink2)}
+.w2.s-stale .w2n,.w2.s-idle .w2n,.w2.s-stale>b,.w2.s-idle>b{color:var(--ink2)}
+.w2c .cr{min-width:0}
+.w2c{display:grid;grid-template-columns:18px minmax(0,1fr);gap:8px;align-items:center;margin-top:4px;padding-top:6px;border-top:1px solid var(--hair)}
+.w2d{font-size:11px;color:var(--ink3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.w2d.s-warn,.w2d.s-crit,.w2d.s-limited{color:var(--sc)}
+.w2>b{text-align:right;font-weight:500}
+.b-fig{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0 10px}
+.b-fig b{display:block;font:600 19px/1.2 var(--ui);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.b-fig span{font-size:11px;color:var(--ink3)}
+.bt{margin-top:10px}
+.tl2{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.bth,.btr{display:grid;grid-template-columns:minmax(0,1fr) 32px 48px 44px 52px;gap:5px;align-items:center;height:21px}
+.bth{font-size:10.5px;color:var(--ink3);height:18px}
+.bth span:nth-child(n+2),.btr .num{text-align:right}
+.brk{display:grid;gap:7px}
+.bk{display:grid;grid-template-columns:104px 1fr 50px 34px;gap:8px;align-items:center;min-width:0}
+.bk .num{text-align:right}.bk .num:last-child{color:var(--ink2)}
+.ss{display:grid;gap:1px}
+.sr{display:grid;grid-template-columns:auto 1fr 46px 78px;gap:4px 6px;align-items:center;height:26px;min-width:0}
+.sr .swm{margin-right:2px}
+.sn{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sn b{font-weight:500}.sn em{font-style:normal;color:var(--ink3);font-size:11px;margin-left:6px}
+.sd2{text-align:right;color:var(--ink2)}
+.ctx{display:grid;grid-template-columns:1fr 30px;gap:6px;align-items:center}
+.ctx .num{text-align:right}
+.ctx.wide{grid-template-columns:90px 34px}
+
+/* ---------- window ---------- */
+.win{width:1180px;height:780px;display:grid;grid-template-columns:216px 1fr;border-radius:18px;overflow:hidden;background:var(--win);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 0 0 .5px #000,0 30px 80px rgba(0,0,0,.55)}
+.side{display:flex;flex-direction:column;margin:8px 0 8px 8px;padding:10px 8px;border-radius:13px;background:rgba(255,255,255,.045);box-shadow:inset 0 0 0 1px var(--hair)}
+.tl{display:flex;gap:8px;padding:5px 6px 20px}
+.tl i{width:12px;height:12px;border-radius:50%;background:#FF5F57}.tl i:nth-child(2){background:#FEBC2E}.tl i:nth-child(3){background:#28C840}
+.nav-g{display:grid;gap:2px}
+.nav-i{display:flex;align-items:center;gap:9px;height:30px;padding:0 8px;border-radius:8px;width:100%;font-size:13px}
+.nav-i .ico{color:var(--ink2)}
+.nav-i:hover{background:var(--fill1)}
+.nav-i.on{background:var(--fill3)}.nav-i.on .ico{color:var(--ink)}
+.nav-i span{flex:1}
+.bdg{font:500 11px/1 var(--mono);font-style:normal;color:var(--ink3)}
+.bdg.s-warn,.bdg.s-crit,.bdg.s-limited{color:var(--sc)}
+.main{display:flex;flex-direction:column;min-width:0;min-height:0}
+.tb{flex:none;display:flex;align-items:center;gap:12px;height:54px;padding:0 20px 0 24px}
+.tb h3{font:600 15px/1 var(--ui)}
+.tb .dim{font-size:12px}
+.body{flex:1;overflow-y:auto;padding:2px 24px 28px;scrollbar-width:thin;scrollbar-color:var(--fill3) transparent}
+.g2{display:grid;grid-template-columns:1fr 296px;gap:32px;margin-top:10px}
+.g2>div{min-width:0}
+.g2.even{grid-template-columns:1fr 1fr}
+.ov-lim{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:4px 0 0;border-block:1px solid var(--hair)}
+.ov-p{padding:12px 20px 14px;min-width:0;border-left:1px solid var(--hair)}
+.ov-p:first-child{border-left:0;padding-left:0}.ov-p:last-child{padding-right:0}
+.ov-p .acct{font-size:13px}.ov-p .acct .dim{font-size:12px}
+.ov-b{display:flex;align-items:center;gap:14px;margin:8px 0 12px}
+.ov-w{display:grid;gap:9px;min-width:0}
+.ow{display:grid;grid-template-columns:1fr auto 38px;gap:5px 8px;font-size:12px;align-items:baseline}
+.ow>span:first-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ow b{font-weight:500;text-align:right}
+.ow em{font-style:normal;color:var(--ink3);font-size:11px}
+.ow .bar{grid-column:1/-1}
+.ow.s-stale>span:first-child,.ow.s-idle>span:first-child,.ow.s-stale b,.ow.s-idle b{color:var(--ink2)}
+.ov-w .cr{border-top:1px solid var(--hair);padding-top:8px;height:auto}
+.vd{display:flex;align-items:baseline;font-size:12px;color:var(--ink2);line-height:1.4}
+.vd .sd{transform:translateY(-1px)}
+.vd b{font-weight:600;color:var(--ink)}
+.vd.s-warn b,.vd.s-crit b,.vd.s-limited b{color:var(--sc)}
+.figs{display:flex;flex-wrap:wrap;gap:4px 22px;margin:2px 0 10px;font-size:12px;color:var(--ink2)}
+.figs b{font-weight:500;color:var(--ink);font-size:13px}
+.g2 .lg{margin-top:8px}
+.val{display:flex;align-items:baseline;gap:8px;margin-bottom:14px}
+.val b{font:600 30px/1.1 var(--ui);letter-spacing:-.025em;font-variant-numeric:tabular-nums}
+.val span{color:var(--ink3);font-size:12px}
+.g2 .brk .bk{grid-template-columns:20px 84px 1fr 56px;font-size:12.5px}
+.frs.lgr .fr{height:28px;grid-template-columns:auto 130px 50px 1fr 90px 34px;font-size:12.5px}
+.g2 .sr{height:28px;font-size:12.5px;grid-template-columns:auto 1fr 56px 96px}
+/* limits */
+.lv-top{display:flex;align-items:center;gap:14px;margin:4px 0 8px;font-size:12px}
+.lm{display:grid;grid-template-columns:280px 1fr;gap:28px;margin-top:2px}
+.lm-l{min-width:0;display:grid;gap:14px;align-content:start}
+.lm-g{display:grid;gap:2px}
+.lm-g .acct{font-size:13px;margin-bottom:2px}
+.lmr{display:grid;grid-template-columns:1fr auto;gap:5px 8px;align-items:baseline;width:calc(100% + 16px);margin:0 -8px;padding:7px 8px 8px;border-radius:8px;font-size:12.5px}
+.lmr:hover{background:var(--fill1)}.lmr.on{background:var(--fill2)}
+.lmr b{font-weight:500}
+.lmr .bar{grid-column:1/-1}
+.lmr em{grid-column:1/-1;font-style:normal;font-size:11px;color:var(--ink3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lmr em.s-warn,.lmr em.s-crit,.lmr em.s-limited{color:var(--sc)}
+.lm-g .cr{padding:6px 0 0;height:auto}
+.lm-d{min-width:0}
+.ld-h{display:flex;align-items:center;gap:9px;height:26px}
+.ld-h h4{font:600 15px/1 var(--ui)}
+.ld-t{display:grid;grid-template-columns:150px 1fr 1fr;gap:28px;align-items:center;margin:10px 0 12px}
+.big{display:flex;align-items:baseline}
+.big b{font:600 40px/1 var(--ui);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.big i{font:500 18px/1 var(--ui);font-style:normal;color:var(--ink3);margin:0 7px 0 2px}
+.big span{font-size:12px;color:var(--ink3)}
+.big.s-warn b,.big.s-crit b,.big.s-limited b{color:var(--sc)}
+.big.s-stale b{color:var(--ink2)}
+.lm-d .callout{margin-bottom:10px;align-items:center}
+.lm-d .callout p{flex:1}
+.lw-f{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-left:27px;margin-top:4px}
+.lgd{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--ink3);white-space:nowrap}
+.lgd i{display:inline-block;width:16px;height:0;border-top:2px solid var(--ink);margin-left:8px}
+.lgd .l-p{border-top:2px dashed var(--ink2)}.lgd .l-e{border-top:2px dotted var(--ink3)}
+.g2.lv-b{margin-top:4px;gap:28px;grid-template-columns:250px minmax(0,1fr)}
+.hits td:nth-child(2){white-space:normal}
+.tag.s-stale,.tag.s-idle{color:var(--ink3)}
+.tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+.tbl th{font:500 11px/1.2 var(--ui);color:var(--ink3);text-align:left;padding:6px 10px 6px 0;white-space:nowrap;border-bottom:1px solid var(--hair)}
+.tbl th small{font-size:10px;color:var(--ink4);margin-left:3px}
+.tbl td{padding:7px 10px 7px 0;border-bottom:1px solid var(--hair);white-space:nowrap}
+.tbl .r{text-align:right;padding-right:0;padding-left:10px}
+.tbl tr.old td{color:var(--ink3)}
+.tbl td .pic{margin-right:8px}.tbl td b{font-weight:500}
+.tbl .s-warn{color:var(--warn)}
+/* models */
+.shares{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin:6px 0 16px}
+.shares>div{display:grid;gap:7px;min-width:0}
+.sh-l{font:600 10.5px/1 var(--ui);letter-spacing:.06em;text-transform:uppercase;color:var(--ink3)}
+.mt tbody tr{cursor:pointer}
+.mt tbody tr:hover td{background:var(--fill1)}
+.mt tr.on td{background:var(--fill2)}
+.mt td:first-child{padding-left:8px;border-radius:7px 0 0 7px}.mt td:last-child{padding-right:8px;border-radius:0 7px 7px 0}
+.mt th:first-child{padding-left:8px}.mt th:last-child{padding-right:8px}
+.mt .mix{width:104px}
+.mt td:nth-child(4),.mt th:nth-child(4){padding-left:16px}
+.rowb{display:inline-flex;align-items:center;font-weight:500}
+.mt .tr{color:var(--ink2)}
+.mt tr.tot{cursor:default}.mt tr.tot td{border-bottom:0;color:var(--ink2);background:none!important}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:8px 8px 0!important;font-size:11.5px;color:var(--ink3)}
+.md{margin-top:22px;padding-top:18px;border-top:1px solid var(--hair)}
+.md-h{display:flex;align-items:center;gap:8px}
+.md-h .swm{width:10px;height:10px;border-radius:3px}
+.md-h h4{font:600 15px/1 var(--ui)}
+.md-h .dim{margin-left:4px}
+.md-g{display:grid;grid-template-columns:616px 1fr;gap:28px;margin-top:6px}
+.md-c{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;align-content:start}
+.cc{min-width:0}
+.cc h5{font:500 12px/1 var(--ui);color:var(--ink2);margin:10px 0 8px}
+.cc h5 em{font-style:normal;color:var(--ink3);font-weight:400;margin-left:8px}
+.quiet.wide{grid-column:1/-1;margin-top:0!important}
+.quiet.top{margin:4px 0 0!important;font-size:12px}
+.rqs{grid-column:1/-1}
+.rqs>div:last-child{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:24px}
+.rq{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;align-items:center;align-content:start;font-size:12px;min-width:0}
+.rq>span:first-child{color:var(--ink3)}
+.rq .lg{grid-column:1/-1;font-size:11px;gap:2px 10px}
+.rq .lg .swm{margin-right:4px}.rq .lg b{margin-left:3px}
+.md-r{min-width:0}
+.md-r .sec:first-child{margin-top:6px}
+.tk{display:grid;gap:7px;font-size:12.5px}
+.tk>div{display:grid;grid-template-columns:14px 1fr 54px 62px;align-items:baseline}
+.tk .num{text-align:right}
+.tk em{font-style:normal;color:var(--ink3);font-size:11px;display:block}
+.tk .tot{border-top:1px solid var(--hair);padding-top:7px;font-weight:500}
+.md-r .kv{margin-top:14px;padding-top:12px;border-top:1px solid var(--hair)}
+.md .empty{margin-top:14px}
+/* machines, sessions, settings */
+.mcr{display:grid;grid-template-columns:170px 140px 200px 1fr 130px;gap:24px;align-items:center;padding:16px 0;border-bottom:1px solid var(--hair)}
+.mc-n{display:flex;align-items:baseline}
+.mc-n b{display:block;font-weight:600;font-size:13.5px}.mc-n span{font-size:11.5px;color:var(--ink3)}
+.mcr.off .mc-n b{color:var(--ink2)}
+.old-t{color:var(--ink3)}
+.mc-s{display:grid;gap:6px;font-size:11px;color:var(--ink3)}
+.row-btn{display:flex;align-items:center;gap:14px;margin-top:16px;font-size:12px}
+.st td .swm{vertical-align:0}
+.set{max-width:780px}
+.set .sec{margin-top:26px}.set .sec:first-child{margin-top:8px}
+.set-mb{display:grid;grid-template-columns:1fr 300px;gap:24px;align-items:start}
+.mbp{display:grid;gap:2px;min-width:0}
+.mbo{display:flex;gap:10px;align-items:flex-start;padding:7px 8px;border-radius:8px;width:100%}
+.mbo:hover{background:var(--fill1)}.mbo.on{background:var(--fill2)}
+.mbo b{display:block;font-weight:500;font-size:13px}.mbo em{display:block;font-style:normal;font-size:11.5px;color:var(--ink3);line-height:1.35}
+.rd{flex:none;width:14px;height:14px;border-radius:50%;box-shadow:inset 0 0 0 1.2px var(--ink3);margin-top:2px}
+.mbo.on .rd{background:var(--accent);box-shadow:inset 0 0 0 3.5px var(--accent),inset 0 0 0 8px #fff}
+.mbv{display:grid;gap:8px;justify-items:center;font-size:11px;min-width:0}
+.mbv-s{width:100%;border-radius:9px;overflow:hidden;background:radial-gradient(130% 120% at 15% 0%,#3c5871,#1b2a3a 70%)}
+.mbv-z{width:100%;height:110px;display:grid;place-items:center;border-radius:9px;background:rgba(0,0,0,.25);box-shadow:inset 0 0 0 1px var(--hair)}
+.set-l{display:grid;gap:12px;font-size:13px}
+.set-l.center{justify-items:center;margin-top:18px}
+.tg{display:flex;align-items:center;gap:10px;cursor:pointer}
+.swt{appearance:none;-webkit-appearance:none;flex:none;margin:0;width:34px;height:20px;border-radius:10px;cursor:pointer;background:radial-gradient(circle 8px at 10px 50%,#fff 96%,transparent 100%),var(--fill3)}
+.swt:checked{background:radial-gradient(circle 8px at 24px 50%,#fff 96%,transparent 100%),var(--accent)}
+.nf{width:48px;height:22px;margin:0 3px;padding:0 5px;border-radius:5px;border:0;box-shadow:inset 0 0 0 1px var(--hair2);background:var(--field);color:var(--ink);font:500 12px var(--mono);text-align:right}
+.nf.pf{width:64px;margin:0}
+.pr td{padding-block:5px}
+.cb{flex:none;width:15px;height:15px;margin:0;accent-color:var(--accent)}
+
+/* ---------- onboarding ---------- */
+.ob{width:800px;height:580px;display:grid;grid-template-columns:196px 1fr;border-radius:18px;overflow:hidden;background:var(--win);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 0 0 .5px #000,0 30px 80px rgba(0,0,0,.55)}
+.ob-rail{margin:8px 0 8px 8px;padding:10px 8px;border-radius:13px;background:rgba(255,255,255,.045);box-shadow:inset 0 0 0 1px var(--hair)}
+.ob-rail ol{list-style:none;display:grid;gap:2px}
+.ob-s{display:flex;align-items:center;gap:9px;width:100%;height:30px;padding:0 8px;border-radius:8px;color:var(--ink2)}
+.ob-s:hover{background:var(--fill1)}
+.ob-s i{display:grid;place-items:center;flex:none;width:18px;height:18px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--ink4);font:500 10.5px/1 var(--mono);font-style:normal}
+.ob-s.on{background:var(--fill3);color:var(--ink)}.ob-s.on i{background:var(--ink);color:#16181b;box-shadow:none}
+.ob-s.done i{background:var(--fill2);box-shadow:none;color:var(--ink)}
+.ob-main{display:flex;flex-direction:column;min-width:0;min-height:0}
+.ob-c{flex:1;overflow-y:auto;padding:30px 34px 10px;display:grid;gap:12px;align-content:start}
+.ob-c h2{font:600 20px/1.2 var(--ui);letter-spacing:-.015em}
+.ob-c>p{color:var(--ink2);font-size:13px;line-height:1.5;max-width:60ch}
+.ob-c>p.dim{color:var(--ink3)}
+.ob-f{flex:none;display:flex;align-items:center;gap:8px;height:56px;padding:0 24px;border-top:1px solid var(--hair);font-size:11.5px}
+.ob-w{display:grid;justify-items:center;text-align:center;gap:12px;padding-top:26px}
+.ob-w p{color:var(--ink2);font-size:13.5px;line-height:1.5;max-width:50ch}
+.ob-w p.dim{color:var(--ink3);font-size:12.5px}
+.ob-prev{width:330px;max-width:100%;margin-top:10px;border-radius:9px;overflow:hidden;background:radial-gradient(130% 120% at 15% 0%,#3c5871,#1b2a3a 70%)}
+.ol{display:grid;margin-top:2px;border-top:1px solid var(--hair)}
+.or{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--hair);min-width:0}
+.or>div{flex:1;min-width:0}
+.or b{display:block;font-weight:500;font-size:13px}.or div>span{font-size:11.5px;color:var(--ink3);line-height:1.35;display:block}
+.or.off b{color:var(--ink2)}
+.ol.tight .or{padding:7px 0}.ol.tight .or>div{flex:none;width:170px}.ol.tight .pb{flex:1}.ol.tight .stt{width:170px;justify-content:flex-end}
+.stt{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;color:var(--ink3);white-space:nowrap}
+.stt.ok{color:var(--ink)}.stt.need{color:var(--warn)}.stt.bad{color:var(--crit)}
+.callout{display:flex;gap:12px;padding:12px 14px;border-radius:10px;background:var(--fill1);box-shadow:inset 0 0 0 1px var(--hair)}
+.callout .ico{color:var(--ink2);margin-top:1px}
+.callout p{font-size:12px;line-height:1.5;color:var(--ink2)}.callout b{color:var(--ink);font-weight:600}
+.ob-c .set-mb{grid-template-columns:1fr 250px;gap:18px}
+.ob-c .mbo{padding:5px 8px}
+.ob-n{display:grid;gap:8px;margin-top:6px;font-size:11px}
+.imp-t{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center}
+.imp-t b{font:600 22px/1 var(--ui);font-variant-numeric:tabular-nums}
+
+/* ---------- notification, states ---------- */
+.ntf-stage{min-height:0}
+.ntfs{display:grid;gap:8px;justify-items:end;padding:10px}
+.ntf{display:flex;gap:10px;width:356px;max-width:100%;padding:11px 13px;border-radius:18px;background:rgba(30,33,39,.7);-webkit-backdrop-filter:blur(30px) saturate(160%);backdrop-filter:blur(30px) saturate(160%);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12),0 10px 30px rgba(0,0,0,.35);font:13px/1.35 var(--ui);color:var(--ink);text-align:left}
+.ntf .appi{flex:none;align-self:center}
+.ntf-b{min-width:0;flex:1}
+.ntf-h{display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink3)}
+.ntf-h b{font-weight:500}
+.ntf-b>b{display:block;font-weight:600}
+.ntf p{margin:0;color:var(--ink2);font-size:12.5px}
+.stg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px;margin:14px 0}
+.stc{min-width:0;padding:12px 14px 14px;border-radius:12px;background:var(--pop-solid);box-shadow:inset 0 0 0 1px var(--hair)}
+.stc-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.stc-b{display:flex;align-items:center;gap:14px}
+.stc-t{flex:1;min-width:0;display:grid;gap:8px}
+.stc-t .wr1{grid-template-columns:minmax(0,1fr) auto;gap:8px}
+.stc-t .wr1 .wl{min-width:0;white-space:normal;overflow-wrap:anywhere}
+.empty-pop{padding-bottom:12px}
+.empty-pop .empty{border:0;padding:30px 14px 22px}
+@media (max-width:520px){.blk{margin-top:44px}.top h1{font-size:21px}.wstage{padding:14px}}
+
+/* ---------- limit groups: 5-hour inside week, model limits under their week ---------- */
+.heroA{padding:14px 0 12px;margin-bottom:8px;border-bottom:1px solid var(--hair)}
+.heroA .hero-v{font-size:19px;margin:7px 0 3px}
+.heroA .hero-s{margin-bottom:0!important}
+.pl{display:grid;min-width:0;--lw:58px}
+.pl+.pl{margin-top:6px}
+.plr{display:grid;grid-template-columns:var(--lw) minmax(0,1fr) 34px 46px;gap:8px;align-items:center;height:21px;width:calc(100% + 12px);margin:0 -6px;padding:0 6px;border-radius:6px;text-align:left;font-size:12px}
+button.plr:hover{background:var(--fill1)}
+.plr.on{background:var(--fill2)}
+.plr b{font-weight:500;text-align:right}
+.plr em{font-style:normal;text-align:right;color:var(--ink3);font-size:10.5px;white-space:nowrap}
+.plr em.x2{grid-column:3/5}
+.plr.s-stale .pl-l,.plr.s-idle .pl-l,.plr.s-stale b,.plr.s-idle b{color:var(--ink2)}
+.plr.s-warn b{color:var(--warn)}
+.plr.s-crit b,.plr.s-limited b{color:var(--crit)}
+.plr.kid{height:19px}
+.plr.kid .bar{height:4px}
+.pl-l{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pl-l.kid{position:relative;overflow:visible;padding-left:15px;color:var(--ink2)}
+.pl-l.kid::before{content:"";position:absolute;left:3px;top:-11px;width:8px;height:19px;border-left:1px solid var(--ink4);border-bottom:1px solid var(--ink4);border-bottom-left-radius:4px}
+.pl-wk .plr .bar b{top:-7.5px;bottom:-7.5px}
+.pl-wk .plr:first-child .bar b{top:-3px}
+.pl-wk .plr:last-child .bar b{bottom:-3px}
+.bar .shr{position:absolute;top:0;bottom:0;width:1.5px;margin-left:-.75px;background:rgba(0,0,0,.7)}
+.plz{display:grid;grid-template-columns:var(--lw) minmax(0,1fr) 88px;gap:8px;height:11px;align-items:center;pointer-events:none}
+.plz em{font-style:normal;font-size:10px;line-height:11px;color:var(--ink3);text-align:right;white-space:nowrap}
+.pl-z{display:block;width:100%;height:26px;margin:-7.5px 0;overflow:visible}
+.pl-z polygon{fill:var(--sc,var(--lvl));opacity:.14}
+.pl-z line{stroke:var(--sc,var(--lvl));stroke-width:1;opacity:.55;vector-effect:non-scaling-stroke}
+.plz.s-stale{--sc:var(--ink3)}
+.pl-note{font-size:11px;color:var(--ink3);height:19px;line-height:19px;padding-left:calc(var(--lw) + 8px)}
+.lrd.solo{margin:6px -6px 4px;padding:7px 8px 8px;border-radius:7px}
+.lrd.solo>b{font-weight:600;color:var(--ink);font-size:11.5px}
+.exh{background:var(--pop-solid);-webkit-backdrop-filter:none;backdrop-filter:none;padding:8px 12px 12px;max-width:100%}
+.exg+.exg{margin-top:10px;padding-top:8px;border-top:1px solid var(--hair)}
+.cmp.wide th{width:104px}
+.ov-w .pl+.pl{margin-top:2px}
+.lm-g .pl{margin-top:2px}
+
+/* ---------- menu bar item editor ---------- */
+.mbk{display:inline-flex;align-items:center}
+.mb-n i{font-style:normal;opacity:.6}
+.mbc-z{overflow:hidden}
+.mbc-s{overflow-x:auto;scrollbar-width:none}
+@media (min-width:901px){.mbg.two{grid-template-columns:repeat(2,1fr)}}
+.mbed{border-radius:12px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--hair);background:rgba(0,0,0,.22)}
+.mbed-live{background:radial-gradient(130% 120% at 15% 0%,#3c5871,#1b2a3a 70%);overflow-x:auto;scrollbar-width:none}
+.mbe{position:relative;display:flex;align-items:center;justify-content:safe center;gap:4px;min-height:104px;padding:18px 16px;overflow-x:auto}
+.mbe.over{background:rgba(47,132,246,.08)}
+.mbe-b{flex:none;display:inline-flex;align-items:center;padding:12px;border-radius:10px;cursor:grab;box-shadow:inset 0 0 0 1px transparent;-webkit-user-select:none;user-select:none}
+.mbe-b:hover{background:var(--fill1);box-shadow:inset 0 0 0 1px var(--hair2)}
+.mbe-b.on{background:var(--fill2);box-shadow:inset 0 0 0 1.5px var(--accent)}
+.mbe-b.drag,.mbt.drag{opacity:.3}
+.mbe-c{position:absolute;top:16px;bottom:16px;width:2px;margin-left:-1px;border-radius:1px;background:var(--accent);pointer-events:none}
+.mbe-0{color:var(--ink3);font-size:12px}
+.mbed-f{display:flex;flex-wrap:wrap;gap:4px 12px;padding:8px 12px;border-top:1px solid var(--hair);font-size:11.5px;color:var(--ink3)}
+.mbed-f b{color:var(--ink);font-weight:500}
+.mbed2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;margin-top:16px;align-items:start}
+.mb-h5{font:600 12px/1.3 var(--ui);color:var(--ink2);margin-bottom:8px!important}
+.mbts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.mbt{display:grid;justify-items:center;align-content:center;gap:8px;min-height:68px;padding:10px 6px 8px;border-radius:10px;background:var(--fill1);box-shadow:inset 0 0 0 1px var(--hair);cursor:grab;min-width:0;-webkit-user-select:none;user-select:none}
+.mbt:hover{background:var(--fill2)}
+.mbt b{font-weight:500;font-size:11.5px;color:var(--ink2);text-align:center}
+.mbi{min-width:0}
+.mbi-h{display:grid;gap:2px;margin-bottom:10px}
+.mbi-h b{font-weight:600;font-size:13px}
+.mbi-h .dim{font-size:11.5px;line-height:1.35}
+.mbi-r{display:grid;grid-template-columns:86px minmax(0,1fr);align-items:center;gap:8px;margin-bottom:8px;font-size:12px;color:var(--ink2)}
+.mbi-r .seg{justify-self:start;flex-wrap:wrap}
+.mbi-a{display:flex;gap:6px;margin-top:12px}
+.mbi-n{font-size:11.5px;line-height:1.4;margin-top:8px!important}
+.mbps{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:16px;font-size:12px}
+.btn.on{box-shadow:inset 0 0 0 1.5px var(--accent)}
+.btn:disabled{opacity:.4;pointer-events:none}
+.mbob{display:grid;gap:14px}
+.mbob .mbp{grid-template-columns:repeat(2,minmax(0,1fr))}
+.mbob .mbv-z{height:72px;overflow:hidden}
+@media (max-width:700px){.mbed2{grid-template-columns:1fr}}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><pattern id="hatch" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="4" height="4" fill="rgba(255,255,255,.12)"/><line x1="0" y1="0" x2="0" y2="4" stroke="rgba(255,255,255,.5)" stroke-width="1.6"/></pattern></defs></svg>
+<div class="page">
+  <header class="top">
+    <h1><span data-app></span> <span>UI mockups for review</span></h1>
+    <p>The menu bar item, the dropdown panel, the full window, first-run setup, and a notification with the limit states. Controls respond: range switchers, tabs, rows, the sidebar and the setup steps. All figures are sample data, frozen at Wed 25 Nov 2026, 14:36.</p>
+  </header>
+  <nav class="nav" aria-label="Mockups">
+    <a href="#menubar">Menu bar</a><a href="#panel-a">Panel</a><a href="#limits-key">Limit groups</a><a href="#app">App</a><a href="#onboarding">Onboarding</a><a href="#states">Notification and states</a>
+  </nav>
+  <div id="key-root"></div>
+
+  <section class="blk" id="menubar">
+    <h2>Menu bar item</h2>
+    <p class="why">The item is a row of blocks you arrange yourself. By default it shows the tightest limit of each of the three subscriptions, then what the last 24 hours would have cost at API prices. It is white like a template image; colour is kept for warning and critical.</p>
+    <div id="mb-root" class="mac"></div>
+  </section>
+
+  <section class="blk" id="panels">
+    <h2>Dropdown panel</h2>
+    <p class="why">Direction A’s layout with B’s headline. The sentence about the limit most at risk comes first, then a ring pair per account, that account’s limits as linked groups, and models and machines on the same sheet.</p>
+    <div class="cols">
+      <div id="panel-a">
+        <h3 class="cap">The panel</h3>
+        <p class="why">Click a ring to switch account, and a limit to see its pace, projection and how many sessions the week still has room for. The range switcher works. About 900 pt tall with Claude open; on a shorter display the sheet scrolls.</p>
+        <div class="stage pstage mac" id="a-root"></div>
+      </div>
+      <div id="limits-key">
+        <h3 class="cap">Limit groups, every account open</h3>
+        <p class="why">The same component for all three accounts, so you can compare how it handles a pair with model limits, a single limit, and two separate budgets.</p>
+        <div class="mac" id="lim-root"></div>
+      </div>
+      <div class="cmp wide">
+        <h3 class="cap">How to read a group</h3>
+        <table>
+          <tbody>
+            <tr><th>5-hour and week</th><td>The 5-hour bar is a close-up of one slice of the week. The wedge joins what this session has used to the slice of the week it took, and the figure beside it says how much that is.</td></tr>
+            <tr><th>Model limits</th><td>A limit that applies to one model sits under the week it belongs to, thinner and indented. It shares the week’s scale and reset, so it shows a figure and no second countdown.</td></tr>
+            <tr><th>Even pace</th><td>The white tick is where usage would be at an even pace. Weekly rows share one window, so their ticks join into one line. A bar filled past the line is ahead of pace.</td></tr>
+            <tr><th>Rings</th><td>The outer ring is the week and the inner ring is the 5-hour session. The figure is the account’s tightest limit.</td></tr>
+            <tr><th>One limit</th><td>OpenAI has no 5-hour limit on this plan, so its group is one bar and says so.</td></tr>
+            <tr><th>Two budgets</th><td>Gemini keeps one budget for its own models and another for Claude and GPT models. Each is its own group.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="app">
+    <h2>Full window</h2>
+    <p class="why">Grouped by account like the panel, with the usage-against-pace chart in Limits, where there is room for it. Settings opens on the menu bar editor: drag blocks in the preview to rearrange them. Limits is a list on the left and one limit in detail on the right, so it reads the same with one row or ten. The sidebar, range switcher, limit rows, model rows and settings all work; the content area scrolls.</p>
+    <div class="scroller"><div class="stage wstage mac" id="app-root"></div></div>
+  </section>
+
+  <section class="blk" id="onboarding">
+    <h2>First-run setup</h2>
+    <p class="why">Seven steps for someone who has just downloaded the app. Steps in the rail are clickable, and “Allow…” and “Test connections” change what the step shows.</p>
+    <div class="scroller"><div class="stage wstage mac" id="ob-root"></div></div>
+  </section>
+
+  <section class="blk" id="states">
+    <h2>Notification and states</h2>
+    <p class="why">Two notifications as they arrive, then one limit row in each state it can be in, with the menu bar item it produces, and the panel before anything is connected.</p>
+    <div id="st-root"></div>
+  </section>
+
+  <p class="endnote">Sample data. Model prices, plan limits, machine figures and session names are invented for the mockups and are consistent with each other: totals are sums of the rows beneath them, and costs are tokens multiplied by the prices in Settings.</p>
+</div>
+<script>
+(()=>{'use strict';
+/* ============ the app name lives here, once ============ */
+/* app icons read from the apps installed on this Mac, 64px PNG */
+const ICON={claude:'data:image/png;base64,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',codex:'data:image/png;base64,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',anti:'data:image/png;base64,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'};
+const APP='Tach';
+document.title=APP+' Mockups';
+
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const NOW=new Date(2026,10,25,14,36,0);
+const DAYS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const pad=n=>String(n).padStart(2,'0');
+const clock=d=>pad(d.getHours())+':'+pad(d.getMinutes());
+const when=d=>(d.toDateString()===NOW.toDateString()?'':DAYS[d.getDay()]+' ')+clock(d);
+const dur=m=>{m=Math.round(m);if(m<60)return m+'m';if(m<1440)return Math.floor(m/60)+'h '+pad(m%60)+'m';let d=Math.floor(m/1440),h=Math.round(m%1440/60);if(h===24){d++;h=0}return d+'d '+h+'h'};
+const sum=a=>a.reduce((x,y)=>x+y,0);
+const hash=s=>{let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0};
+const rng=seed=>{let a=hash(seed);return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}};
+const fT=m=>m>=1000?(m/1000).toFixed(2)+'B':m>=100?Math.round(m)+'M':m>=10?m.toFixed(1)+'M':m>=1?m.toFixed(2)+'M':m>0?Math.round(m*1000)+'K':'0';
+const fA=m=>m>=1000?+(m/1000).toFixed(1)+'B':m>=1?+m.toFixed(1)+'M':Math.round(m*1000)+'K';
+const fC=d=>'$'+(d>=100?Math.round(d).toLocaleString('en-US'):d.toFixed(2));
+const fN=n=>Math.round(n).toLocaleString('en-US');
+const nice=v=>{const p=Math.pow(10,Math.floor(Math.log10(v))),m=v/p;return(m<=1?1:m<=2?2:m<=2.5?2.5:m<=5?5:10)*p};
+
+/* ============ sample data ============ */
+/* A limit row: len/elapsed in minutes, used in %, burn in points per hour. */
+function mkW(id,label,sl,len,elapsed,used,burn,x){
+  const w={id,label,sl,len,elapsed,used,burn,...x};
+  w.rem=len-elapsed;w.el=elapsed/len*100;w.pace=used-w.el;
+  w.start=new Date(+NOW-elapsed*6e4);w.reset=new Date(+NOW+w.rem*6e4);
+  w.wk=len>300;const u=v=>w.wk?(v*24).toFixed(1)+'%/day':(+v.toFixed(1))+'%/h';
+  w.avg=elapsed?used/(elapsed/60):0;w.sus=(100-used)/(w.rem/60);
+  w.burnTxt=u(burn);w.avgTxt=u(w.avg);w.susTxt=u(w.sus);
+  w.proj=used;
+  if(!w.idle&&!w.stale&&!w.empty&&used<100&&burn>0){const th=Math.round((100-used)/burn*60);
+    if(th<w.rem){w.hitIn=th;w.hit=new Date(+NOW+th*6e4);w.short=w.rem-th;w.proj=100;w.hitX=(elapsed+th)/len}
+    else w.proj=used+burn*w.rem/60}
+  w.state=w.idle?'idle':w.stale?'stale':w.empty?'empty':used>=100?'limited':used>=95?'crit':(used>=80||w.hit)?'warn':'ok';
+  return w}
+const PROV=[
+ {id:'claude',name:'Claude',plan:'Max 20x',mono:'Cl',col:'var(--p-claude)',tool:'Claude Code',src:'~/.claude',fee:200,
+  w:[mkW('c5','5-hour session','5-hour session',300,192,81,22,{sh:6}),mkW('cw','Weekly, all models','Weekly, all models',10080,6096,54,.53),
+     mkW('co','Weekly, Opus','Weekly, Opus',10080,6096,71,.70,{k:'Opus'}),mkW('cf','Weekly, Fable','Weekly, Fable',10080,6096,23,.21,{k:'Fable'})],
+  credit:{left:41.2,cap:100,until:'1 Dec'}},
+ {id:'codex',name:'OpenAI',plan:'ChatGPT Pro',mono:'Cx',col:'var(--p-codex)',tool:'Codex',src:'~/.codex',fee:200,
+  w:[mkW('xw','Weekly','Weekly',10080,3756,31,.495)]},
+ {id:'anti',name:'Gemini',plan:'Google AI Ultra',mono:'Ag',col:'var(--p-anti)',tool:'Antigravity',src:'the Antigravity app',fee:250,stale:{ago:'3h',at:'11:36'},
+  w:[mkW('g5','Gemini models, 5-hour','Gemini models, 5h',300,284,44,0,{stale:1,sh:2,rd:104,pool:'Gemini models',wl:'5-hour'}),mkW('gw','Gemini models, weekly','Gemini models, wk',10080,8496,38,0,{stale:1,rd:8316,pool:'Gemini models',wl:'Weekly'}),
+     mkW('o5','Claude and GPT models, 5-hour','Claude and GPT, 5h',300,0,0,0,{idle:1,pool:'Claude and GPT models',wl:'5-hour'}),mkW('ow','Claude and GPT models, weekly','Claude and GPT, wk',10080,4576,12,0,{stale:1,rd:4396,pool:'Claude and GPT models',wl:'Weekly'})]}];
+PROV.forEach(p=>p.w.forEach(w=>w.p=p));
+/* a pool is one budget: an optional 5-hour session inside a week, plus model limits that share the week's window.
+   sh on a session = points of the week that session has used so far */
+const POOLS={claude:[{s:'c5',w:'cw',kids:['co','cf']}],codex:[{w:'xw'}],anti:[{name:'Gemini models',s:'g5',w:'gw'},{name:'Claude and GPT models',s:'o5',w:'ow'}]};
+PROV.forEach(p=>{const f=id=>p.w.find(w=>w.id===id);p.pools=POOLS[p.id].map(q=>({name:q.name,s:q.s?f(q.s):null,w:f(q.w),kids:(q.kids||[]).map(f)}))});
+const rank=w=>({limited:0,crit:1,warn:2,ok:3,empty:3,stale:4,idle:5})[w.state];
+const risk=(a,b)=>rank(a)-rank(b)||((a.hitIn??1e9)-(b.hitIn??1e9))||(b.proj-a.proj);
+const ALLW=PROV.flatMap(p=>p.w).sort(risk);
+const tight=p=>[...p.w].sort(risk)[0];
+const TOP=ALLW[0];
+const OUTSIDE='Limits include usage outside tracked tools, such as the web and mobile apps. Token statistics do not.',OUTSIDE_S='Limits also count usage outside tracked tools.';
+
+/* t = [input, cache read, cache write 5 min, cache write 1 h, output] in millions of tokens over 24h; q = latency data quality */
+const MODELS=[
+ {id:'opus',name:'Claude Opus 5.5',sh:'Opus 5.5',prov:'claude',c:'var(--m-opus)',t:[6.2,412,22,9,4.9],rs:1.6,req:6050,tps:[120,168],ttft:[1.0,2.6],err:1.2,price:[5,.5,6.25,10,25],q:1,eff:[6,31,48,15],fast:14,sub:22,ag:.04},
+ {id:'mythos',name:'Claude Mythos 5.2',sh:'Mythos 5.2',prov:'claude',c:'var(--m-mythos)',t:[3.1,188,10,4,2.6],rs:.7,req:3480,tps:[104,150],ttft:[.9,2.2],err:.8,price:[3,.3,3.75,6,15],q:1,eff:[12,44,38,6],fast:9,sub:35},
+ {id:'fable',name:'Claude Fable 5.2',sh:'Fable 5.2',prov:'claude',c:'var(--m-fable)',t:[2.4,96,6.5,2,1.9],rs:.2,req:7800,tps:[185,250],ttft:[.5,1.2],err:.5,price:[1,.1,1.25,2,5],q:1,eff:[41,47,12,0],fast:0,sub:81},
+ {id:'astra',name:'GPT 6.2 Astra',sh:'GPT 6.2 Astra',prov:'codex',c:'var(--m-astra)',t:[9.8,142,0,0,3.4],rs:1.9,req:2710,tps:[71,118],ttft:[2.4,7.9],err:2.1,price:[2.5,.25,null,null,20],q:2,eff:[4,38,58,0],ag:.05},
+ {id:'sol',name:'GPT 6.2 Sol',sh:'GPT 6.2 Sol',prov:'codex',c:'var(--m-sol)',t:[4.1,38,0,0,1.2],rs:.3,req:2170,tps:[142,205],ttft:[.8,2.1],err:.9,price:[.5,.05,null,null,4],q:2,eff:[52,40,8,0]},
+ {id:'neon',name:'Gemini 4 Neon',sh:'Gemini 4 Neon',prov:'anti',c:'var(--m-neon)',t:[7.6,64,0,0,2.2],rs:.9,req:1510,tps:[104,171],ttft:[1.4,3.9],err:3.4,price:[2,.2,null,null,12],q:3}];
+const TN=['Input','Cache read','Cache write, 5 min','Cache write, 1 hour','Output'],TC=['var(--t-in)','var(--t-cr)','var(--t-c5)','var(--t-c1)','var(--t-out)'],ORD=[1,2,3,0,4];
+const RK=['1h','6h','24h','7d','30d','90d','all'],RKL=RK.map(k=>[k,k==='all'?'All':k]);
+const RNG={'1h':{f:.062,n:12,step:5,lab:'last hour'},'6h':{f:.34,n:24,step:15,lab:'last 6 hours'},'24h':{f:1,n:24,step:60,lab:'last 24 hours'},'7d':{f:5.9,n:28,step:360,lab:'last 7 days'},'30d':{f:23.4,n:30,step:1440,lab:'last 30 days'},'90d':{f:62,n:13,step:10080,lab:'last 90 days'},'all':{f:70,n:15,step:10080,lab:'since 12 Aug 2026'}};
+/* Antigravity has been closed since 11:36, so Gemini 4 Neon has no usage in the last hour */
+const MULT={opus:[1.25,1.1,1,.95,.9,.82,.8],mythos:[.9,1,1,1.05,1.1,1,.95],fable:[.8,.95,1,1,.95,.9,.9],astra:[1.1,1,1,.9,.85,.9,.9],sol:[.5,.8,1,1.1,1,.9,.85],neon:[0,.55,1,.7,.6,.5,.45]};
+const MACH=[
+ {id:'mbp',name:'macbook-pro',os:'macOS 26.1 · this Mac',on:1,seen:'now',col:'built in',lag:'none',ver:'0.4.1'},
+ {id:'star',name:'devbox',os:'Ubuntu 26.04 · x86_64',on:1,seen:'4s ago',col:'healthy',lag:'2s',ver:'0.4.1'},
+ {id:'time',name:'buildbox',os:'Ubuntu 26.04 · x86_64',on:1,seen:'9s ago',col:'healthy',lag:'3s',ver:'0.4.1'},
+ {id:'grav',name:'homelab',os:'Debian 13 · x86_64',on:0,seen:'9h 12m ago',col:'no heartbeat',lag:'unknown',ver:'0.4.0'}];
+const MSH={'1h':[46,36,18,0],'6h':[44,35,21,0],'24h':[38,34,22,6],'7d':[33,31,21,15],'30d':[31,30,22,17],'90d':[30,29,22,19],'all':[30,28,22,20]};
+const AFF={opus:[1.1,1,.9,1.2],mythos:[.8,1.3,1,.9],fable:[.9,.8,1.5,.8],astra:[1.3,.9,.7,.6],sol:[.8,1.4,.6,.5],neon:[1,0,0,0]};
+const act=d=>{const h=d.getHours()+d.getMinutes()/60,wd=d.getDay();let a=h<2?.35:h<7?.08:h<9?.5:h<13?1:h<14?.7:h<19?1:h<23?.6:.4;if(wd===0||wd===6)a*=.55;return a};
+const _b={};
+function build(range){
+  if(_b[range])return _b[range];
+  const r=RNG[range],ri=RK.indexOf(range);
+  const rows=MODELS.map(m=>{
+    const k=r.f*MULT[m.id][ri],R=rng(m.id+range),t=m.t.map(v=>v*k),tot=sum(t);
+    const cost=sum(t.map((v,i)=>v*(m.price[i]||0)));
+    const wts=MSH[range].map((s,i)=>s*AFF[m.id][i]),ws=sum(wts),mach=wts.map(x=>tot*x/ws);
+    let ser=[];for(let i=0;i<r.n;i++){const d=new Date(+NOW-(r.n-i-.5)*r.step*6e4);let v=(r.step>1440?.45+.55*i/(r.n-1):r.step===1440?(d.getDay()%6?1:.5):r.step<60?1:act(d))*(.55+R()*.9);if(m.id==='neon'&&NOW-d<180*6e4)v=0;ser.push(v)}
+    const ss=sum(ser)||1;ser=ser.map(v=>v/ss*tot);
+    const j=()=>1+(R()-.5)*.08,pr=t[0]+t[1]+t[2]+t[3],cache=pr?t[1]/pr*100:0;
+    const cser=ser.map(v=>v?Math.max(40,Math.min(99.5,cache+(R()-.5)*7)):null);
+    const ag=ri?(m.id==='neon'?1:m.ag||0):0,ti=m.prov==='claude'?0:m.prov==='codex'?1:2,tool=[0,0,0];tool[2]+=tot*ag;tool[m.id==='neon'?2:ti]+=tot*(m.id==='neon'?0:1-ag);
+    return{m,t,tot,cost,mach,ser,cser,tool,toolc:tool.map(v=>tot?v/tot*cost:0),rs:m.rs*k,req:Math.round(m.req*k),cache,
+      tps:m.tps.map(v=>Math.round(v*j())),ttft:m.ttft.map(v=>+(v*j()).toFixed(1)),err:+(m.err*j()).toFixed(1),trend:range==='all'?null:Math.round((R()-.42)*44)}});
+  const tot=sum(rows.map(x=>x.tot)),cost=sum(rows.map(x=>x.cost));
+  const t=[0,1,2,3,4].map(i=>sum(rows.map(x=>x.t[i])));
+  const mach=MACH.map((_,i)=>sum(rows.map(x=>x.mach[i])));
+  const tool=PROV.map((p,i)=>({p,tot:sum(rows.map(x=>x.tool[i])),cost:sum(rows.map(x=>x.toolc[i]))}));
+  return _b[range]={range,r,rows,tot,cost,t,mach,tool,req:sum(rows.map(x=>x.req)),cache:t[1]/(t[0]+t[1]+t[2]+t[3])*100,out:t[4]}}
+const blab=range=>{const r=RNG[range],d=i=>new Date(+NOW-(r.n-i)*r.step*6e4),f=r.step>=1440?x=>x.getDate()+' '+MON[x.getMonth()]:r.step>=360?x=>DAYS[x.getDay()]+' '+clock(x):clock;return[f(d(0)),f(d(r.n>>1)),'now']};
+const SESS=[
+ {tool:'Claude Code',m:'opus',mach:'macbook-pro',proj:'menubar-app',dur:102,tok:38.2,ctx:64,live:1},
+ {tool:'Claude Code',m:'mythos',mach:'devbox',proj:'atlas-api',dur:185,tok:61.0,ctx:82,live:1},
+ {tool:'Codex',m:'astra',mach:'macbook-pro',proj:'kestrel-ios',dur:48,tok:9.4,ctx:41,live:1},
+ {tool:'Claude Code',m:'fable',mach:'buildbox',proj:'ledger-sync',dur:22,tok:4.1,ctx:18,live:1},
+ {tool:'Codex',m:'sol',mach:'devbox',proj:'infra-tf',dur:12,tok:1.3,ctx:9,live:1},
+ {tool:'Claude Code',m:'opus',mach:'devbox',proj:'menubar-app',dur:134,tok:47.9,ctx:91,end:'13:02'},
+ {tool:'Antigravity',m:'neon',mach:'macbook-pro',proj:'docs-site',dur:70,tok:12.7,ctx:55,end:'11:36'},
+ {tool:'Codex',m:'astra',mach:'macbook-pro',proj:'kestrel-ios',dur:80,tok:14.6,ctx:73,end:'11:15'},
+ {tool:'Antigravity',m:'opus',mach:'macbook-pro',proj:'docs-site',dur:35,tok:5.2,ctx:37,end:'10:05'},
+ {tool:'Claude Code',m:'opus',mach:'homelab',proj:'atlas-api',dur:271,tok:88.4,ctx:96,end:'05:24',stale:1}];
+const HIST={c5:[62,48,100,35,71,88,54,12,67,93,41,58,100,77,36,49,82,66,23,72,90,57,64,81],cw:[71,84,66,92,78,88,54],co:[88,100,74,96,81,93,71],cf:[18,31,22,40,27,35,23],
+ xw:[44,61,38,72,55,49,31],g5:[15,42,58,33,9,71,26,47,64,38,52,21,69,30,12,55,43,36,61,27,49,18,57,44],gw:[52,47,66,39,58,44,38],ow:[8,15,6,21,11,9,12],o5:[0,0,22,0,0,14,0,0,0,31,0,0,9,0,0,0,18,0,0,0,26,0,12,0]};
+const HITS={claude:[['Mon 23 Nov','16:41','5-hour session','43m','17:24'],['Thu 19 Nov','21:07','5-hour session','1h 17m','22:24'],['Fri 13 Nov','10:12','Weekly, Opus','22h 48m','Sat 09:00'],['Tue 3 Nov','15:55','5-hour session','29m','16:24']],codex:[],anti:[['Tue 17 Nov','13:20','Gemini models, 5-hour','1h 05m','14:25']]};
+
+/* ============ atoms ============ */
+const S={'A-acct':TOP.p.id,'A-row':'','A-range':'24h','A-age':'12s ago','B-win':TOP.id,'B-tab':'limits','B-range':'24h','B-brk':'machine','B-age':'12s ago',
+ 'app-view':'overview','app-range':'24h','app-row':TOP.id,'app-model':'opus','app-sess':'all','app-mb':'combo','app-age':'12s ago',
+ 'ob-step':0,'ob-mb':'pct','ob-grant':0,'ob-test':0,t1:80,t2:95,nShort:true,nReset:true,nStale:false,login:true};
+const COL={ok:'var(--lvl)',warn:'var(--warn)',crit:'var(--crit)',limited:'var(--crit)',stale:'url(#hatch)',idle:'transparent',empty:'transparent'};
+const B=(a,v,html,cls='',x='')=>`<button type="button" id="${a}-${v}" class="${cls}" data-act="${a}" data-val="${v}" ${x}>${html}</button>`;
+const seg=(a,opts,label,cls='')=>`<div class="seg ${cls}" role="group" aria-label="${label}">${opts.map(o=>{const[v,l]=Array.isArray(o)?o:[o,o];return B(a,v,l,'seg-b'+(String(S[a])===String(v)?' on':''),`aria-pressed="${String(S[a])===String(v)}"`)}).join('')}</div>`;
+const chip=(p,s=16,alt='')=>`<img class="pic" src="${ICON[p.id]}" width="${s}" height="${s}" alt="${alt}">`;
+const mi=(m,s=15)=>chip(PROV.find(p=>p.id===m.prov),s);
+const sw=m=>`<i class="swm" style="background:${m.c}"></i>`;
+/* latency data quality, three levels: 3 measured per request, 2 measured per turn, 1 estimated */
+const QT=['','Estimated from log timestamps, available for 78% of requests','Measured per turn, not per request','Measured per request'];
+const QS=['','estimated','per turn','per request'];
+const qm=q=>`<svg class="qm" width="10" height="9" viewBox="0 0 10 9" role="img" aria-label="${QT[q]}"><title>${QT[q]}</title>${[0,1,2].map(i=>`<rect x="${i*3.5}" y="${6-i*2.5}" width="2.5" height="${3+i*2.5}" rx=".7" fill="currentColor" opacity="${i<q?.9:.24}"/>`).join('')}</svg>`;
+const lat=(v,q)=>`<span class="lat">${qm(q)}${v}</span>`;
+const age=(t,stale)=>`<span class="age${stale?' old':''}" title="Data age"><i></i>${t}</span>`;
+const sec=(t,x='')=>`<div class="sec"><span>${t}</span><i></i>${x}</div>`;
+const sd=s=>`<i class="sd s-${s}"></i>`;
+const I={ov:'<rect x="2.5" y="2.5" width="4.5" height="4.5" rx="1"/><rect x="9" y="2.5" width="4.5" height="4.5" rx="1"/><rect x="2.5" y="9" width="4.5" height="4.5" rx="1"/><rect x="9" y="9" width="4.5" height="4.5" rx="1"/>',
+ lim:'<circle cx="8" cy="8" r="5.5" opacity=".4"/><path d="M8 2.5a5.5 5.5 0 1 1-5.5 5.5"/>',
+ mod:'<path d="M3 13V8M8 13V3M13 13V6"/>',mach:'<rect x="2" y="3" width="12" height="8" rx="1.5"/><path d="M6 13.5h4"/>',
+ sess:'<path d="M3 4.5h10M3 8h10M3 11.5h6"/>',
+ set:'<path d="M2.5 5h5M11.5 5h2M2.5 11h2M8.5 11h5"/><circle cx="9.5" cy="5" r="1.7"/><circle cx="6.5" cy="11" r="1.7"/>',
+ ref:'<path d="M13 8a5 5 0 1 1-1.6-3.7M13 2.3v3.2H9.8"/>',chk:'<path d="M3.5 8.5l3 3 6-7"/>',x:'<path d="M4 4l8 8M12 4l-8 8"/>',
+ lock:'<rect x="3.5" y="7" width="9" height="6.5" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/>',plus:'<path d="M8 3v10M3 8h10"/>'};
+const ico=(k,s=16)=>`<svg class="ico" width="${s}" height="${s}" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${I[k]}</svg>`;
+const paceTxt=w=>`${Math.abs(Math.round(w.pace))} pts ${w.pace>=0?'ahead of':'behind'} pace`;
+const stName={ok:'OK',warn:'Warning',crit:'Critical',limited:'Limited',stale:'Stale',idle:'Not started',empty:'No data'};
+const pct=w=>w.state==='idle'||w.state==='empty'?'—':w.used+'%';
+const remTxt=w=>w.state==='idle'||w.state==='empty'?'—':dur(w.rem);
+function verdict(w,lead){
+  const n=lead?`${w.label}: `:'';
+  if(w.state==='stale')return`${n}Last read ${w.p.stale.ago} ago. Open ${w.p.tool} to refresh.`;
+  if(w.state==='idle')return`${n}Not started. The window begins with your next request.`;
+  if(w.state==='empty')return`${n}No usage recorded in this window yet.`;
+  if(w.state==='limited')return`${n}Limit reached. Resets ${when(w.reset)}, in <b>${dur(w.rem)}</b>.`;
+  if(w.hit)return`${n}At this pace you hit the limit at <b>${when(w.hit)}</b>, <b>${dur(w.short)}</b> before reset.`;
+  return`${n}Safe through reset. On pace to end at <b>${Math.round(w.proj)}%</b>.`}
+const credit=p=>p.credit?`<div class="cr"><span>Extra usage credits</span><span class="dim">of ${fC(p.credit.cap)}, renews ${p.credit.until}</span><b class="num">${fC(p.credit.left)} left</b></div>`:'';
+
+/* ring: one arc per limit row, with a tick at even pace and a faint arc to the projection */
+function ring(ws,{size=92,sw=6,gap=3,num,sub}={}){
+  const c=size/2;let s=`<svg class="ring" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" role="img" aria-label="${ws.map(w=>w.label+' '+pct(w)+' used').join(', ')}">`;
+  ws.forEach((w,i)=>{const r=c-3-sw/2-i*(sw+gap),C=2*Math.PI*r,col=COL[w.state],rot=`transform="rotate(-90 ${c} ${c})"`,none=w.state==='empty'||w.state==='idle';
+    s+=`<circle cx="${c}" cy="${c}" r="${r}" fill="none" stroke="var(--fill2)" stroke-width="${sw}"${none?' stroke-dasharray="2 3"':''}/>`;
+    if(none)return;
+    if(w.proj>w.used)s+=`<circle cx="${c}" cy="${c}" r="${r}" fill="none" stroke="${col}" stroke-width="${sw}" opacity=".3" stroke-dasharray="${(w.proj/100*C).toFixed(1)} ${C.toFixed(1)}" ${rot}/>`;
+    s+=`<circle cx="${c}" cy="${c}" r="${r}" fill="none" stroke="${col}" stroke-width="${sw}" stroke-dasharray="${(Math.min(w.used,100)/100*C).toFixed(1)} ${C.toFixed(1)}" ${rot}/>`;
+    if(w.state!=='stale'&&w.state!=='limited'){const a=w.el/100*2*Math.PI-Math.PI/2,r1=r-sw/2-.5,r2=r+sw/2+(i?1.5:2.5),x1=(c+r1*Math.cos(a)).toFixed(1),y1=(c+r1*Math.sin(a)).toFixed(1),x2=(c+r2*Math.cos(a)).toFixed(1),y2=(c+r2*Math.sin(a)).toFixed(1);
+      s+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="rgba(0,0,0,.6)" stroke-width="3.4"/><line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#fff" stroke-width="1.4"/>`}});
+  if(num!=null)s+=`<text x="${c}" y="${c+(sub?2:5)}" text-anchor="middle" class="ring-n${ws[0].state==='stale'?' old':''}" style="font-size:${size<70?15:17}px">${num}</text>`+(sub?`<text x="${c}" y="${c+14}" text-anchor="middle" class="ring-s">${sub}</text>`:'');
+  return s+'</svg>'}
+const bar=(w,sh)=>`<span class="bar s-${w.state}" role="img" aria-label="${w.label}: ${pct(w)} used">${w.proj>w.used?`<u style="width:${Math.min(w.proj,100)}%"></u>`:''}<i style="width:${Math.min(w.used,100)}%"></i>${sh?`<span class="shr" style="left:${w.used-sh}%"></span>`:''}${['stale','limited','empty','idle'].includes(w.state)?'':`<b style="left:${w.el}%"></b>`}</span>`;
+const pbar=(f,c)=>`<span class="pb"><i style="width:${Math.max(f*100,f>0?1.5:0)}%;background:${c||'var(--ink2)'}"></i></span>`;
+
+/* usage so far, even-pace diagonal, dashed projection */
+function hpts(w){if(w._h)return w._h;const r=rng(w.id),n=w.wk?40:24,inc=[],e=(w.rd??w.elapsed);for(let i=0;i<n;i++){let v=.25+r()*1.5;if(w.wk){const d=new Date(+w.start+(i+.5)/n*e*6e4);v*=act(d)+.05}inc.push(v)}
+  const s=sum(inc);let a=0;const p=[[0,0]];inc.forEach((v,i)=>{a+=v;p.push([(i+1)/n*e/w.len,a/s*w.used])});return w._h=p}
+function traj(w,{W=320,H=100,ax=1}={}){
+  const l=ax?27:1,r=ax?10:2,t=ax?14:3,b=ax?17:1,pw=W-l-r,ph=H-t-b,X=f=>+(l+f*pw).toFixed(1),Y=p=>+(t+ph-p/100*ph).toFixed(1),live=!['stale','idle','empty','limited'].includes(w.state),c=w.state==='stale'?'var(--ink3)':COL[w.state];
+  let s=`<svg class="tj" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${w.p.name} ${w.label}: ${pct(w)} used">`;
+  if(ax)[0,50,100].forEach(p=>{s+=`<line x1="${l}" x2="${W-r}" y1="${Y(p)}" y2="${Y(p)}" class="${p===100?'lim':'g'}"/><text x="${l-5}" y="${Y(p)+3}" class="ax" text-anchor="end">${p}${p===100?'%':''}</text>`});
+  else s+=`<line x1="${l}" x2="${W-r}" y1="${Y(100)}" y2="${Y(100)}" class="lim"/><line x1="${l}" x2="${W-r}" y1="${Y(0)}" y2="${Y(0)}" class="g"/>`;
+  if(w.state==='idle'||w.state==='empty')return s+(ax?`<text x="${l+pw/2}" y="${t+ph/2+3}" class="ax hi" text-anchor="middle">${w.state==='idle'?'not started':'no usage yet'}</text>`:'')+'</svg>';
+  s+=`<line x1="${X(0)}" y1="${Y(0)}" x2="${X(1)}" y2="${Y(100)}" class="pace"/>`;
+  const pts=hpts(w).map(([f,p])=>X(f)+','+Y(p)).join(' '),ex=w.hit?w.hitX:1,e=w.el/100,le=(w.rd??w.elapsed)/w.len;
+  s+=`<polygon points="${X(0)},${Y(0)} ${pts} ${X(le)},${Y(0)}" fill="${c}" opacity=".13"/><polyline points="${pts}" fill="none" stroke="${c}" stroke-width="${ax?1.7:1.3}" stroke-linejoin="round"/>`;
+  if(ax)s+=`<line x1="${X(e)}" x2="${X(e)}" y1="${t}" y2="${t+ph}" class="now"/>`;
+  if(live){
+    s+=`<line x1="${X(e)}" y1="${Y(w.used)}" x2="${X(ex)}" y2="${Y(w.proj)}" stroke="${c}" stroke-width="${ax?1.5:1.2}" stroke-dasharray="3 3"/>`;
+    if(w.hit)s+=`<line x1="${X(ex)}" x2="${X(1)}" y1="${Y(100)}" y2="${Y(100)}" stroke="${c}" stroke-width="${ax?3:2.4}"/>`+(ax?`<circle cx="${X(ex)}" cy="${Y(100)}" r="3" fill="var(--pop-solid)" stroke="${c}" stroke-width="1.6"/>`:'');
+    else if(ax)s+=`<circle cx="${X(1)}" cy="${Y(w.proj)}" r="2.6" fill="var(--pop-solid)" stroke="${c}" stroke-width="1.5"/>`}
+  s+=`<circle cx="${X(le)}" cy="${Y(w.used)}" r="${ax?3:2.2}" fill="${c}"/>`;
+  if(ax){s+=`<text x="${l}" y="${H-4}" class="ax">${when(w.start)}</text><text x="${W-r}" y="${H-4}" class="ax" text-anchor="end">resets ${when(w.reset)}</text>`;
+    if(e>.2&&e<.72)s+=`<text x="${X(e)}" y="${H-4}" class="ax hi" text-anchor="middle">now</text>`;
+    if(w.state==='stale')s+=`<text x="${X(le)+6}" y="${Y(w.used)-6}" class="ax hi">last read ${w.p.stale.at}</text>`;
+    if(w.hit)s+=`<text x="${Math.min(X(ex),W-r-50)}" y="${t-5}" class="ax hi" style="fill:${c}" text-anchor="middle">limit at ${when(w.hit)}</text>`;
+    else if(live)s+=`<text x="${W-r-6}" y="${Y(w.proj)-6}" class="ax hi" text-anchor="end">${Math.round(w.proj)}%</text>`}
+  return s+'</svg>'}
+
+/* stacked bars over time; one linear scale from zero */
+function stack(series,cols,{W=324,H=90,labels,l=34,fmt=fA}={}){
+  const n=series[0].length,t=6,b=15,pw=W-l-2,ph=H-t-b,tots=series[0].map((_,i)=>sum(series.map(s=>s[i]))),max=nice(Math.max(...tots,1e-6)*1.02),bw=pw/n,Y=v=>t+ph-v/max*ph;
+  let s=`<svg class="ch" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Tokens over time, stacked">`;
+  [0,.5,1].forEach(f=>{s+=`<line x1="${l}" x2="${W}" y1="${Y(max*f)}" y2="${Y(max*f)}" class="g"/><text x="${l-5}" y="${Y(max*f)+3}" class="ax" text-anchor="end">${f?fmt(max*f):'0'}</text>`});
+  for(let i=0;i<n;i++){let a=0;series.forEach((sr,k)=>{const h=sr[i]/max*ph;if(h>.15)s+=`<rect x="${(l+i*bw+bw*.12).toFixed(1)}" y="${(Y(a+sr[i])).toFixed(1)}" width="${(bw*.76).toFixed(1)}" height="${Math.max(h-.5,.4).toFixed(1)}" fill="${cols[k]}"/>`;a+=sr[i]})}
+  if(labels)s+=`<text x="${l}" y="${H-3}" class="ax">${labels[0]}</text><text x="${l+pw/2}" y="${H-3}" class="ax" text-anchor="middle">${labels[1]}</text><text x="${W}" y="${H-3}" class="ax" text-anchor="end">${labels[2]}</text>`;
+  return s+'</svg>'}
+function lineCh(vals,{W=280,H=120,labels,col='var(--ink)',l=34}={}){
+  const t=6,b=15,pw=W-l-2,ph=H-t-b,n=vals.length,Y=v=>t+ph-v/100*ph,X=i=>l+(i+.5)/n*pw;
+  let s=`<svg class="ch" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Cache hit rate over time, 0 to 100%">`;
+  [0,50,100].forEach(v=>{s+=`<line x1="${l}" x2="${W}" y1="${Y(v)}" y2="${Y(v)}" class="g"/><text x="${l-5}" y="${Y(v)+3}" class="ax" text-anchor="end">${v}%</text>`});
+  s+=`<polyline points="${vals.map((v,i)=>v==null?'':X(i).toFixed(1)+','+Y(v).toFixed(1)).join(' ')}" fill="none" stroke="${col}" stroke-width="1.7" stroke-linejoin="round"/>`;
+  if(labels)s+=`<text x="${l}" y="${H-3}" class="ax">${labels[0]}</text><text x="${W}" y="${H-3}" class="ax" text-anchor="end">${labels[2]}</text>`;
+  return s+'</svg>'}
+function histo(p50,p95,{W=280,H=120,unit='',col='var(--ink)',q=3}={}){
+  const mu=Math.log(p50),sg=(Math.log(p95)-mu)/1.645,max=nice(p95*1.35),n=32,l=4,t=16,b=15,pw=W-l-4,ph=H-t-b,d=[];
+  for(let i=0;i<n;i++){const x=(i+.5)/n*max;d.push(Math.exp(-((Math.log(x)-mu)**2)/(2*sg*sg))/(x*sg))}
+  const m=Math.max(...d),X=v=>l+v/max*pw,bw=pw/n;
+  let s=`<svg class="ch" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Distribution, p50 ${p50}${unit}, p95 ${p95}${unit}"><line x1="${l}" x2="${W-4}" y1="${t+ph}" y2="${t+ph}" class="g"/>`;
+  d.forEach((v,i)=>{const h=v/m*ph;s+=`<rect x="${(l+i*bw+.6).toFixed(1)}" y="${(t+ph-h).toFixed(1)}" width="${(bw-1.2).toFixed(1)}" height="${h.toFixed(1)}" fill="${col}" opacity="${q===1?.5:.9}"/>`});
+  [[p50,'p50'],[p95,'p95']].forEach(([v,k])=>{s+=`<line x1="${X(v)}" x2="${X(v)}" y1="${t-3}" y2="${t+ph}" class="mk"/><text x="${k==='p50'?Math.max(X(v)-4,l+48):Math.max(X(v)+4,l+56)}" y="${t-6}" class="ax hi" text-anchor="${k==='p50'?'end':'start'}">${k} ${unit?v.toFixed(1):v}${unit}</text>`});
+  s+=`<text x="${l}" y="${H-3}" class="ax">0</text><text x="${W-4}" y="${H-3}" class="ax" text-anchor="end">${max}${unit}</text>`;
+  return s+'</svg>'}
+const spark=(v,W=64,H=18,c='var(--ink2)')=>{const m=Math.max(...v)||1,n=v.length;return`<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" aria-hidden="true"><polyline points="${v.map((x,i)=>(i/(n-1)*W).toFixed(1)+','+(H-1.5-x/m*(H-3)).toFixed(1)).join(' ')}" fill="none" stroke="${c}" stroke-width="1.3" stroke-linejoin="round"/></svg>`};
+const mixbar=(parts,cls='')=>`<span class="mix ${cls}">${parts.map(([f,c,t])=>f>0?`<i style="flex:${f};background:${c}" title="${t||''}"></i>`:'').join('')}</span>`;
+
+/* ============ menu bar ============ */
+const D1=build('1h');
+const LIVE_TPS=286;
+function mring(p,state='ok',k=1){const c=COL[state]==='var(--lvl)'?'currentColor':COL[state],C=2*Math.PI*5.5,none=state==='empty'||state==='idle';
+  return`<svg width="${16*k}" height="${16*k}" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="5.5" fill="none" stroke="currentColor" stroke-width="2.4" opacity=".3"${state==='stale'||none?' stroke-dasharray="1.6 1.9"':''}/>${none?'':`<circle cx="8" cy="8" r="5.5" fill="none" stroke="${state==='stale'?'currentColor':c}" stroke-width="2.4"${state==='stale'?' opacity=".55"':''} stroke-dasharray="${(Math.min(p,100)/100*C).toFixed(2)} ${C.toFixed(2)}" transform="rotate(-90 8 8)"/>`}${state==='limited'?`<rect x="6" y="6" width="4" height="4" rx=".8" fill="${c}"/>`:''}</svg>`}
+function mbars(vals,k=1){return`<svg width="${17*k}" height="${16*k}" viewBox="0 0 17 16" aria-hidden="true">${vals.map(([p,st],i)=>{const h=Math.max(11*Math.min(p,100)/100,1),c=st==='ok'||st==='stale'?'currentColor':COL[st];return`<rect x="${1+i*5.5}" y="2.5" width="4" height="11" rx="1" fill="currentColor" opacity=".3"/><rect x="${1+i*5.5}" y="${(13.5-h).toFixed(1)}" width="4" height="${h.toFixed(1)}" rx="1" fill="${c}"${st==='stale'?' opacity=".45"':''}/>`}).join('')}</svg>`}
+function mrate(k=1){const v=[4,7,5,9,6,11,8];return`<svg width="${16*k}" height="${16*k}" viewBox="0 0 16 16" aria-hidden="true">${v.map((h,i)=>`<rect x="${1+i*2.1}" y="${13.5-h}" width="1.3" height="${h}" rx=".5" fill="currentColor" opacity="${i>4?1:.55}"/>`).join('')}</svg>`}
+const PB=()=>PROV.map(p=>{const t=[...p.w].sort((a,b)=>b.used-a.used)[0];return[t.used,t.state]});
+const MBV=[['glyph','Ring only','The ring fills with your tightest limit and takes the warning or critical colour.'],
+ ['pct','Ring + tightest %','The default. One number: the limit closest to running out.'],
+ ['bars','One bar per subscription','Claude, OpenAI and Gemini side by side; each bar is that account’s fullest limit.'],
+ ['reset','Reset countdown','Time until the tightest limit resets.'],
+ ['rate','Live tokens/sec','Output tokens per second across every machine.'],
+ ['combo','Combined','Bars, tightest %, and its reset countdown.']];
+function mbItem(v,k=1,o={}){
+  const w=o.w||TOP,cr=w.state==='crit'||w.state==='limited',num=(t,c='')=>`<span class="mb-n${cr?' s-'+w.state:''}${c}">${t}</span>`;
+  const p=w.state==='limited'?'100%':pct(w),cd=remTxt(w);
+  const g=mring(w.used,w.state,k),bars=mbars(o.bars||PB(),k),dm=w.state==='stale'?' dim':'';
+  const h={glyph:g,pct:g+num(p,dm),bars:bars,reset:g+num(cd),rate:mrate(k)+num(LIVE_TPS+' t/s'),combo:bars+num(p)+`<span class="mb-n dim">${cd}</span>`}[v];
+  return`<span class="mbx" style="font-size:${12.5*k}px;gap:${4.5*k}px">${h}</span>`}
+const SYS=`<span class="mb-sys"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 6.6a8.6 8.6 0 0 1 12 0M4.2 9a5.4 5.4 0 0 1 7.6 0"/><circle cx="8" cy="11.8" r=".9" fill="currentColor" stroke="none"/></svg></span><span class="mb-sys"><svg width="25" height="16" viewBox="0 0 25 16" aria-hidden="true"><rect x="1" y="3.5" width="20" height="9" rx="2.6" fill="none" stroke="currentColor" opacity=".45"/><rect x="2.6" y="5.1" width="13" height="5.8" rx="1.3" fill="currentColor"/><rect x="22.3" y="6.3" width="1.6" height="3.4" rx=".8" fill="currentColor" opacity=".45"/></svg></span><span class="mb-sys"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3.2" width="12" height="4" rx="2"/><rect x="2" y="8.8" width="12" height="4" rx="2"/><circle cx="11.6" cy="5.2" r=".9" fill="currentColor"/><circle cx="4.4" cy="10.8" r=".9" fill="currentColor"/></svg></span><span class="mb-clock">Wed Nov 25&nbsp; 14:36</span>`;
+const menubar=(item,o={})=>`<div class="mb${o.mini?' mini':''}">${o.menus?`<span class="mb-l"><b>Terminal</b><span>Shell</span><span>Edit</span><span>View</span><span>Window</span><span>Help</span></span>`:'<span class="mb-l"></span>'}<span class="mb-i${o.open?' on':''}">${item}</span>${SYS}</div>`;
+
+/* ============ menu bar item: an ordered row of blocks the user arranges ============ */
+let _bid=0;const nb=o=>({id:'b'+(++_bid),...o});
+const L=(a,show='ringpct')=>({t:'lim',a,lim:'tight',show});
+const MBT={lim:['Limit','How full one subscription’s limit is, as a ring, a bar or a figure.',()=>L('top')],
+ reset:['Reset countdown','Time until a limit resets.',()=>({t:'reset',a:'top'})],
+ cost:['API value','What your usage would have cost at API prices.',()=>({t:'cost',r:'24h'})],
+ tok:['Tokens','Total tokens over a period.',()=>({t:'tok',r:'24h'})],
+ tps:['Tokens per second','Live output speed across every machine.',()=>({t:'tps'})],
+ live:['Live sessions','How many agent sessions are running now.',()=>({t:'live'})]};
+const MBP={quota:['Three quotas and API value','Each subscription’s tightest limit, then what the last 24 hours would have cost through the API. The default.',()=>[L('claude'),L('codex'),L('anti'),{t:'cost',r:'24h'}]],
+ top:['Tightest limit only','One ring and one figure: the limit closest to running out.',()=>[L('top')]],
+ rings:['Three rings','No figures. Colour tells you when to look.',()=>[L('claude','ring'),L('codex','ring'),L('anti','ring')]],
+ all:['Everything','Quotas, the next reset, API value and live speed.',()=>[L('claude'),L('codex'),L('anti'),{t:'reset',a:'top'},{t:'cost',r:'24h'},{t:'tps'}]]};
+const mbMake=k=>MBP[k][2]().map(nb);
+S.mb=mbMake('quota');S.mbSel=S.mb[0].id;S.mbPre='quota';
+const mbW=b=>{if(!b.a||b.a==='top')return TOP;const p=PROV.find(x=>x.id===b.a),q=p.pools[0];return b.lim==='s'?(q.s||q.w):b.lim==='w'?q.w:tight(p)};
+const mbName=b=>{const who=!b.a||b.a==='top'?'Tightest':PROV.find(x=>x.id===b.a).name;return b.t==='lim'?who+' limit':b.t==='reset'?who+' reset':MBT[b.t][0]};
+function mbar1(p,st,k=1){const h=Math.max(11*Math.min(p,100)/100,1),c=st==='ok'||st==='stale'?'currentColor':COL[st];
+  return`<svg width="${6*k}" height="${16*k}" viewBox="0 0 6 16" aria-hidden="true"><rect x="1" y="2.5" width="4" height="11" rx="1" fill="currentColor" opacity=".3"/><rect x="1" y="${(13.5-h).toFixed(1)}" width="4" height="${h.toFixed(1)}" rx="1" fill="${c}"${st==='stale'?' opacity=".45"':''}/></svg>`}
+const mclock=(k=1)=>`<svg width="${16*k}" height="${16*k}" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="5.6"/><path d="M8 4.9V8l2.2 1.4"/></svg>`;
+const mlive=(k=1)=>`<svg width="${16*k}" height="${16*k}" viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="1.8" y="3.2" width="12.4" height="9.6" rx="2.2"/><path d="M4.8 6.6l1.9 1.5-1.9 1.5M8.6 9.8h2.6"/></svg>`;
+function mbBlock(b,k=1){
+  const N=(t,c='')=>`<span class="mb-n${c}">${t}</span>`;
+  if(b.t==='lim'){const w=mbW(b),hot=w.state==='crit'||w.state==='limited',none=w.state==='idle'||w.state==='empty',
+      n=N(w.state==='limited'?'100%':pct(w),(hot?' s-'+w.state:'')+(w.state==='stale'||none?' dim':'')),g=mring(w.used,w.state,k);
+    return({ring:g,ringpct:g+n,barpct:mbar1(w.used,w.state,k)+n,pct:n})[b.show]||g+n}
+  if(b.t==='reset')return mclock(k)+N(remTxt(mbW(b)));
+  if(b.t==='cost')return N(fC(build(b.r).cost));
+  if(b.t==='tok')return N(fT(build(b.r).tot)+'<i> tok</i>');
+  if(b.t==='tps')return mrate(k)+N(LIVE_TPS+' t/s');
+  return mlive(k)+N(nLive)}
+const mbRow=(cfg,k=1)=>`<span class="mbx" style="font-size:${12.5*k}px;gap:${9*k}px">${cfg.length?cfg.map(b=>`<span class="mbk" style="gap:${4*k}px">${mbBlock(b,k)}</span>`).join(''):mring(TOP.used,TOP.state,k)}</span>`;
+const mbNow=(k=1)=>mbRow(S.mb,k);
+function mbEditor(){
+  const cfg=S.mb,sel=cfg.find(b=>b.id===S.mbSel),i=cfg.indexOf(sel),Z=2;
+  const opt=(lab,key,opts)=>`<div class="mbi-r"><span>${lab}</span><div class="seg" role="group" aria-label="${lab}">${opts.map(([v,l])=>B('app-mbset',key+':'+v,l,'seg-b'+(sel[key]===v?' on':''),`aria-pressed="${sel[key]===v}"`)).join('')}</div></div>`;
+  let insp='';
+  if(sel){
+    if(sel.t==='lim'||sel.t==='reset')insp+=opt('Subscription','a',[['top','Tightest'],...PROV.map(p=>[p.id,p.name])]);
+    if(sel.t==='lim'){if(sel.a!=='top')insp+=opt('Limit','lim',[['tight','Tightest'],['s','5-hour'],['w','Week']]);insp+=opt('Show as','show',[['ringpct','Ring + %'],['ring','Ring'],['barpct','Bar + %'],['pct','% only']])}
+    if(sel.t==='cost'||sel.t==='tok')insp+=opt('Period','r',[['1h','1h'],['24h','24h'],['7d','7d'],['30d','30d']]);
+    if(!insp)insp='<p class="dim mbi-n">This block has no options.</p>';
+    insp=`<div class="mbi-h"><b>${mbName(sel)}</b><span class="dim">${MBT[sel.t][1]}</span></div>${insp}<div class="mbi-a">${B('app-mbmv','-1','Move left','btn sm',i<=0?'disabled':'')}${B('app-mbmv','1','Move right','btn sm',i>=cfg.length-1?'disabled':'')}<span class="grow"></span>${B('app-mbdel','1','Remove','btn sm')}</div>`}
+  else insp='<p class="dim mbi-n">Select a block in the bar to change what it shows.</p>';
+  return`<div class="mbed"><div class="mbed-live" id="mb-live">${menubar(mbNow(),{mini:1})}</div>
+   <div class="mbe" id="mbe" aria-label="Menu bar item blocks">${cfg.map(b=>`<span class="mbe-b${b===sel?' on':''}" role="button" tabindex="0" draggable="true" id="app-mbsel-${b.id}" data-bid="${b.id}" data-act="app-mbsel" data-val="${b.id}" aria-pressed="${b===sel}" aria-label="${mbName(b)}"><span class="mbx" style="font-size:${12.5*Z}px;gap:${4*Z}px">${mbBlock(b,Z)}</span></span>`).join('')||'<span class="mbe-0">Drag a block here</span>'}<i class="mbe-c" hidden></i></div>
+   <div class="mbed-f"><span>Drag blocks to reorder them. Drag one out of the bar to remove it.</span><span class="grow"></span><span>Width in the menu bar <b class="num" id="mbw">–</b></span></div></div>
+  <div class="mbed2"><div><h5 class="mb-h5">Add a block</h5><div class="mbts">${Object.entries(MBT).map(([k,[n,d,mk]])=>`<span class="mbt" role="button" tabindex="0" draggable="true" id="app-mbadd-${k}" data-new="${k}" data-act="app-mbadd" data-val="${k}" title="${d}"><span class="mbx" style="font-size:${12.5*1.3}px;gap:${4*1.3}px">${mbBlock(mk(),1.3)}</span><b>${n}</b></span>`).join('')}</div><p class="dim mbi-n">Drag one into the bar, or click to add it at the end.</p></div>
+   <div class="mbi"><h5 class="mb-h5">Selected block</h5>${insp}</div></div>
+  <div class="mbps"><span class="dim">Start from</span>${Object.entries(MBP).map(([k,[n]])=>B('app-mbpre',k,n,'btn sm'+(S.mbPre===k?' on':''),`aria-pressed="${S.mbPre===k}"`)).join('')}</div>`}
+const mbPresets=()=>`<div class="mbob"><div class="mbp" role="radiogroup" aria-label="Menu bar item">${Object.entries(MBP).map(([k,[n,d]])=>B('ob-mbpre',k,`<i class="rd"></i><span><b>${n}</b><em>${d}</em></span>`,'mbo'+(S.mbPre===k?' on':''),`role="radio" aria-checked="${S.mbPre===k}"`)).join('')}</div><div class="mbv"><div class="mbv-s">${menubar(mbNow(),{mini:1})}</div><div class="mbv-z">${mbNow(1.5)}</div><span class="dim">Shown at 1.5×. In Settings you can rearrange it block by block.</span></div></div>`;
+
+/* ============ shared panel pieces ============ */
+const appIcon=(s=32)=>`<svg class="appi" width="${s}" height="${s}" viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="7.5" fill="#23262C" stroke="rgba(255,255,255,.16)"/><circle cx="16" cy="16" r="8" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="3.6"/><circle cx="16" cy="16" r="8" fill="none" stroke="#F3F5F7" stroke-width="3.6" stroke-dasharray="33 51" transform="rotate(-90 16 16)"/></svg>`;
+const footer=k=>`<div class="pop-f">${B(k+'-open','1','Open '+APP,'btn')}<span class="grow"></span><span class="upd">Updated ${S[k+'-age']}</span>${B(k+'-refresh','1',ico('ref',14),'ib','aria-label="Refresh" title="Refresh"')}${B(k+'-gear','1',ico('set',14),'ib','aria-label="Settings" title="Settings"')}</div>`;
+const liveN=name=>SESS.filter(s=>s.live&&s.mach===name).length;
+function machRows(){const tot=sum(D1.mach);return MACH.map((m,i)=>`<div class="fr${m.on?'':' off'}"><i class="dot${m.on?'':' no'}"></i><span class="fn mono">${m.name}</span>${m.on?`<span class="fs">${liveN(m.name)} live</span><span class="num ft">${fT(D1.mach[i])}/h</span>${pbar(D1.mach[i]/tot)}<span class="num fp">${Math.round(D1.mach[i]/tot*100)}%</span>`:`<span class="fs old">no data · last seen ${m.seen}</span>`}</div>`).join('')}
+const ctxc=v=>v>=90?'var(--crit)':v>=80?'var(--warn)':'var(--ink2)';
+const M=id=>MODELS.find(m=>m.id===id);
+const legend=rows=>`<div class="lg">${rows.map(r=>`<span>${sw(r.m)}${r.m.name}</span>`).join('')}</div>`;
+const qleg=s=>`<span class="lg ql">${s?'':'<span>Latency source</span>'}<span>${qm(3)}per request</span><span>${qm(2)}per turn</span><span>${qm(1)}estimated${s?'':' from logs'}</span></span>`;
+const acct=(p,z=16)=>`<div class="acct">${chip(p,z)}<b>${p.name}</b><span class="dim">${p.plan}</span><span class="grow"></span>${p.stale?age('read '+p.stale.ago+' ago',1):''}</div>`;
+const rl=w=>w.pool?w.wl:w.label;
+const rowsOf=(p,fn)=>{let last;return p.w.map(w=>{const h=w.pool&&w.pool!==last?`<div class="pool">${w.pool}</div>`:'';last=w.pool;return h+fn(w)}).join('')};
+const short=w=>w.state==='stale'?`read ${w.p.stale.ago} ago · resets in ${dur(w.rem)}`:w.state==='idle'?'not started':w.state==='limited'?`limited · resets in ${dur(w.rem)}`:w.hit?`${dur(w.short)} short · limit at ${when(w.hit)}`:`ends at ${Math.round(w.proj)}% · resets in ${dur(w.rem)}`;
+const sessRows=()=>SESS.filter(s=>s.live).map(s=>{const m=M(s.m);return`<div class="sr">${chip(PROV.find(p=>p.tool===s.tool),15,s.tool)}<span class="sn"><b>${s.proj}</b><em>${m.sh} · ${s.mach}</em></span><span class="num sd2">${dur(s.dur)}</span><span class="ctx" title="Context window fill">${pbar(s.ctx/100,ctxc(s.ctx))}<span class="num">${s.ctx}%</span></span></div>`}).join('');
+
+/* ============ limit groups ============ */
+const headOf=w=>w.state==='limited'?`Limited for <b>${dur(w.rem)}</b>`:w.state==='stale'?`Last read <b>${w.p.stale.ago}</b> ago`:w.state==='idle'?'Not started':w.hit?`Runs out <b>${dur(w.short)}</b> before reset`:'Safe through reset';
+const subOf=w=>w.state==='stale'?`${w.used}% used at ${w.p.stale.at}. ${w.p.tool} reports limits only while its app is open.`:w.state==='idle'?'This window starts, and gets a reset time, with your next request.':(w.hit?`Limit at ${when(w.hit)}, reset at ${when(w.reset)}.`:`On pace to end at ${Math.round(w.proj)}% when it resets ${when(w.reset)}.`)+` Burning ${w.burnTxt}, ${paceTxt(w)}.`;
+const subShort=w=>w.state==='stale'?`${w.used}% used at ${w.p.stale.at} · open ${w.p.tool} to refresh`:w.state==='idle'?'Starts with your next request':w.state==='limited'?`Resets ${when(w.reset)}`:`${w.hit?'Limit at '+when(w.hit):'Ends at '+Math.round(w.proj)+'%'} · resets ${when(w.reset)} · burning ${w.burnTxt}`;
+const poolOf=w=>w.p.pools.find(q=>q.s===w||q.w===w||q.kids.includes(w));
+const pring=(p,o)=>{const t=tight(p),q=poolOf(t);return ring([q.w,q.s].filter(Boolean),{...o,num:pct(t)})};
+const shareTxt=q=>{if(!q.s||!q.s.sh||q.s.state==='stale')return'';const f=q.s.sh/q.s.used*100,n=Math.floor((100-q.w.used)/f);
+  return`This session has used <b>${q.s.sh}%</b> of the week. A full session uses about ${Math.round(f)}%, so the week has room for about <b>${n}</b> more.`};
+function poolBlock(q,{act,cur}={}){
+  const row=(w,lab,o={})=>{const on=w.id===cur,none=w.state==='idle'||w.state==='empty',
+      inner=`<span class="pl-l${o.kid?' kid':''}">${lab}</span>${bar(w,o.sh)}${none?`<em class="x2">${w.state==='idle'?'not started':'no data'}</em>`:`<b class="num">${pct(w)}</b><em class="num">${o.kid?'':remTxt(w)}</em>`}`,
+      cls='plr s-'+w.state+(o.kid?' kid':'')+(on?' on':'');
+    return act?B(act,w.id,inner,cls,`aria-pressed="${on}" aria-label="${w.label}, ${pct(w)} used"`):`<div class="${cls}">${inner}</div>`};
+  const s=q.s,w=q.w,sh=s&&s.sh&&s.state!=='idle'?s.sh:0;
+  let h=`<div class="pl">${q.name?`<div class="pool">${q.name}</div>`:''}`;
+  if(s){h+=row(s,'5-hour');
+    if(sh){const a=Math.min(s.used,100),x1=w.used-sh,x2=w.used;
+      h+=`<div class="plz s-${s.state}"><span></span><svg class="pl-z" viewBox="0 0 100 26" preserveAspectRatio="none" aria-hidden="true"><polygon points="0,0 ${a},0 ${x2},26 ${x1},26"/><line x1="0" y1="0" x2="${x1}" y2="26"/><line x1="${a}" y1="0" x2="${x2}" y2="26"/></svg><em>${sh}% of the week</em></div>`}}
+  h+=`<div class="pl-wk">${row(w,'Week',{sh})}${q.kids.map(x=>row(x,x.k,{kid:1})).join('')}</div>`;
+  if(!s)h+=`<div class="pl-note">No 5-hour limit on this plan.</div>`;
+  return h+'</div>'}
+const renderLim=()=>`<div class="pop exh">${PROV.map(p=>`<div class="exg">${acct(p)}${p.pools.map(q=>poolBlock(q)).join('')}${credit(p)}</div>`).join('')}</div>`;
+
+/* ============ the panel: headline, a ring pair per account, linked limit groups, models, machines ============ */
+function renderA(){
+  const d=build(S['A-range']),mx=Math.max(...d.rows.map(r=>r.tot)),p=PROV.find(x=>x.id===S['A-acct']),w=p.w.find(x=>x.id===S['A-row']),q=w&&poolOf(w),T=TOP;
+  const live=w&&!['stale','idle','empty'].includes(w.state),sh=w&&(w===q.s||w===q.w)?shareTxt(q):'';
+  const lines=!w?[]:[w===T?'':live?`<span>Resets ${when(w.reset)}<i>·</i>burning ${w.burnTxt}<i>·</i>${paceTxt(w)}</span>`:w.state==='stale'?`<span>Resets ${when(w.reset)}<i>·</i>${w.used}% used at ${w.p.stale.at}</span>`:'',w===T?'':`<span class="lrv">${verdict(w)}</span>`,sh?`<span>${sh}</span>`:''].filter(Boolean);
+  const det=lines.length?`<div class="lrd solo s-${w.state}"><b>${w.label}</b>${lines.join('')}</div>`:'';
+  return menubar(mbNow(),{open:1})+`<div class="pop" role="group" aria-label="${APP} panel">
+  <div class="hero heroA s-${T.state}"><div class="hero-k">${chip(T.p)}<span>${T.p.name} · ${T.label}</span><span class="grow"></span><span class="num">${pct(T)} used</span></div><div class="hero-v">${headOf(T)}</div><p class="hero-s">${subShort(T)}</p></div>
+  <div class="rings">${PROV.map(x=>{const t=tight(x);return B('A-pick',x.id,`<span class="rc-h">${chip(x,18)}<span>${x.name}</span></span>${pring(x,{size:66,sw:5,gap:2.5})}<span class="rc-s">${t.sl}</span><span class="rc-t num">${t.state==='stale'?'read '+x.stale.ago+' ago':remTxt(t)+' left'}</span>`,'rcell'+(x===p?' on':''),`aria-pressed="${x===p}" aria-label="${x.name}, tightest limit ${t.label}, ${pct(t)} used"`)}).join('')}</div>
+  ${sec(p.name+' · '+p.plan,p.stale?age('read '+p.stale.ago+' ago',1):`<span class="sec-x num">${p.w.length} limit${p.w.length>1?'s':''}</span>`)}
+  <div class="lg-a">${p.pools.map(z=>poolBlock(z,{act:'A-row',cur:w&&w.id})).join('')}${det}${credit(p)}</div>
+  <p class="quiet">${OUTSIDE_S}</p>
+  ${sec('Models',seg('A-range',RKL,'Range','tight'))}
+  <div class="mtot"><span><b class="num">${fT(d.tot)}</b> tokens</span><span><b class="num">${fC(d.cost)}</b> at API prices</span><span><b class="num">${Math.round(d.cache)}%</b> cached</span></div>
+  ${stack(d.rows.map(r=>r.ser),d.rows.map(r=>r.m.c),{W:324,H:62,labels:blab(S['A-range'])})}
+  <div class="ml"><div class="mlh"><span>Model</span><span></span><span>Tokens</span><span>Out t/s</span><span>API $</span></div>${[...d.rows].sort((a,b)=>b.tot-a.tot).map(r=>`<div class="mr${r.tot?'':' zero'}"><span class="mn">${mi(r.m)}${r.m.sh}</span>${pbar(r.tot/mx,r.m.c)}<span class="num">${fT(r.tot)}</span><span class="num">${r.tot?lat(r.tps[0],r.m.q):'—'}</span><span class="num">${fC(r.cost)}</span></div>`).join('')}</div>
+  ${sec('Machines',`<span class="sec-x num">${fT(sum(D1.mach))} tokens/h</span>`)}
+  <div class="frs">${machRows()}</div>
+  ${footer('A')}</div>`}
+
+
+/* ============ app window ============ */
+const NAV=[['overview','Overview','ov'],['limits','Limits','lim'],['models','Models','mod'],['machines','Machines','mach'],['sessions','Sessions','sess']];
+const nLive=SESS.filter(s=>s.live).length;
+const SUB={overview:'Wed 25 Nov, 14:36',limits:`3 accounts · ${ALLW.length} limits`,models:'6 models across 3 tools',machines:'3 of 4 reporting',sessions:`${nLive} live · ${SESS.length-nLive} recent`,settings:''};
+const kv=(rows,c='')=>`<dl class="kv ${c}">${rows.map(([k,v])=>`<div><dt>${k}</dt><dd class="num">${v}</dd></div>`).join('')}</dl>`;
+function vOverview(){
+  const d=build(S['app-range']),days=d.r.n*d.r.step/1440,fee=sum(PROV.map(p=>p.fee))/30*days;
+  return`<div class="ov-lim">${PROV.map(p=>{const t=tight(p);return`<div class="ov-p">${acct(p,20)}
+   <div class="ov-b">${pring(p,{size:76,sw:6,gap:3})}<p class="vd s-${t.state}"><span>${verdict(t,1)}</span></p></div>
+   <div class="ov-w">${p.pools.map(q=>poolBlock(q)).join('')}${credit(p)}</div></div>`}).join('')}</div>
+  <p class="quiet">${OUTSIDE}</p>
+  <div class="g2"><div>${sec('Tokens by model, '+d.r.lab)}
+    <div class="figs"><span><b class="num">${fT(d.tot)}</b> tokens</span><span><b class="num">${fN(d.req)}</b> requests</span><span><b class="num">${d.cache.toFixed(1)}%</b> cache hit rate</span><span><b class="num">${fT(d.out)}</b> output</span></div>
+    ${stack(d.rows.map(r=>r.ser),d.rows.map(r=>r.m.c),{W:584,H:168,labels:blab(S['app-range']),l:40})}${legend(d.rows)}</div>
+   <div>${sec('Value at API prices')}<div class="val"><b class="num">${fC(d.cost)}</b><span>${d.r.lab}</span></div>
+    <div class="brk">${d.tool.map(x=>`<div class="bk">${chip(x.p)}<span>${x.p.tool}</span>${pbar(x.cost/d.cost,x.p.col)}<span class="num">${fC(x.cost)}</span></div>`).join('')}</div>
+    <p class="note">The three subscriptions cost <b class="num">${fC(fee)}</b> over the same period, so this usage is <b class="num">${Math.round(d.cost/fee)}×</b> the subscription price.</p></div></div>
+  <div class="g2 even"><div>${sec('Machines',`<span class="sec-x num">${fT(sum(D1.mach))} tokens/h now</span>`)}<div class="frs lgr">${machRows()}</div></div>
+   <div>${sec('Live sessions',`<span class="sec-x num">${nLive} now</span>`)}<div class="ss">${sessRows()}</div></div></div>`}
+function winHist(arr,W=280){const H=140,l=30,t=10,b=17,pw=W-l-2,ph=H-t-b,n=arr.length,bw=pw/n,Y=v=>t+ph-v/100*ph;
+  let s=`<svg class="ch" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Peak usage of the last ${n} windows">`;
+  [0,50,100].forEach(v=>{s+=`<line x1="${l}" x2="${W}" y1="${Y(v)}" y2="${Y(v)}" class="${v===100?'lim':'g'}"/><text x="${l-5}" y="${Y(v)+3}" class="ax" text-anchor="end">${v}%</text>`});
+  arr.forEach((v,i)=>{if(v)s+=`<rect x="${(l+i*bw+bw*.14).toFixed(1)}" y="${Y(v).toFixed(1)}" width="${(bw*.72).toFixed(1)}" height="${(v/100*ph).toFixed(1)}" rx="1.5" fill="${v>=100?'var(--crit)':v>=80?'var(--warn)':'var(--lvl)'}" opacity="${i===n-1?1:.8}"/>`});
+  return s+`<text x="${l}" y="${H-3}" class="ax">${n} windows ago</text><text x="${W}" y="${H-3}" class="ax" text-anchor="end">current</text></svg>`}
+function vLimits(){
+  const w=ALLW.find(x=>x.id===S['app-row']),p=w.p,hits=HITS[p.id],live=!['stale','idle','limited'].includes(w.state),na=w.state==='idle';
+  const fc=rate=>{const th=Math.round((100-w.used)/rate*60);return th<w.rem?`<span class="s-warn">limit at ${when(new Date(+NOW+th*6e4))}, ${dur(w.rem-th)} early</span>`:`ends at ${Math.round(w.used+rate*w.rem/60)}%`};
+  return`<div class="lm"><div class="lm-l">${PROV.map(q=>`<div class="lm-g">${acct(q,20)}${q.pools.map(z=>poolBlock(z,{act:'app-row',cur:w.id})).join('')}${credit(q)}</div>`).join('')}<p class="quiet">${OUTSIDE}</p></div>
+  <div class="lm-d"><div class="ld-h">${chip(p,22)}<h4>${p.name} · ${w.label}</h4><span class="tag s-${w.state}">${stName[w.state]}</span><span class="grow"></span>${p.stale?age('read '+p.stale.ago+' ago',1):age('12s ago')}</div>
+   <div class="ld-t"><div class="big s-${w.state}"><b class="num">${na?'—':w.used}</b><i>${na?'':'%'}</i><span>used</span></div>
+    ${kv([['Elapsed',na?'—':`${Math.round(w.el)}% · ${dur(w.elapsed)} of ${w.wk?'7d':'5h'}`],['Resets',na?'no reset time yet':`${when(w.reset)} · in ${dur(w.rem)}`],['Pace',live?paceTxt(w):'—']])}
+    ${kv([['Burn now',live?w.burnTxt:'—'],['Window average',na?'—':w.avgTxt],['Sustainable to reset',live?'≤ '+w.susTxt:'—']])}</div>
+   ${w.state==='stale'?`<div class="callout">${ico('ref')}<p><b>Last read ${p.stale.ago} ago, at ${p.stale.at}.</b> ${p.tool} reports these limits only while the ${p.tool} app is open, as the fraction remaining. Open it and ${APP} refreshes these within a few seconds.</p>${B('app-openp','1','Open '+p.tool,'btn')}</div>`:''}
+   ${na?`<div class="callout">${ico('lim')}<p><b>This window has not started.</b> ${p.name} gives a window its reset time on the first request that uses it. Nothing has drawn on this pool since the last reset.</p></div>`:''}
+   ${traj(w,{W:604,H:186})}<div class="lw-f"><p class="vd s-${w.state}">${sd(w.state)}<span>${verdict(w)}</span></p><span class="lgd"><i class="l-u"></i>used<i class="l-p"></i>projected<i class="l-e"></i>even pace</span></div>
+   ${live?`${sec('Forecast')}<table class="tbl"><thead><tr><th>If you continue at</th><th class="r">Rate</th><th class="r">Result</th></tr></thead><tbody><tr><td>The current burn rate</td><td class="num r">${w.burnTxt}</td><td class="num r">${fc(w.burn)}</td></tr><tr><td>This window’s average so far</td><td class="num r">${w.avgTxt}</td><td class="num r">${fc(w.avg)}</td></tr><tr><td>The most that still reaches the reset</td><td class="num r">${w.susTxt}</td><td class="num r">ends at 100%</td></tr></tbody></table>`:''}
+   <div class="g2 even lv-b"><div>${sec(`Peak of the last ${HIST[w.id].length} ${w.wk?'weekly':'5-hour'} windows`)}${winHist(HIST[w.id],250)}</div>
+   <div>${sec(p.name+' limit hits, 30 days',`<span class="sec-x num">${hits.length}</span>`)}${hits.length?`<table class="tbl hits"><thead><tr><th>When</th><th>Limit</th><th class="r">Locked out</th></tr></thead><tbody>${hits.map(x=>`<tr><td class="num">${x[0].slice(4)} ${x[1]}</td><td>${x[2]}</td><td class="num r">${x[3]}</td></tr>`).join('')}</tbody></table>`:`<div class="empty"><b>No limit hits</b><span>${p.name} has not reached a limit in the last 30 days.</span></div>`}</div></div></div></div>`}
+function vModels(){
+  const d=build(S['app-range']),lab=blab(S['app-range']),r=d.rows.find(x=>x.m.id===S['app-model']),m=r.m,p=PROV.find(x=>x.id===m.prov),q=m.q;
+  const mg=['var(--g1)','var(--g2)','var(--g3)','var(--g4)'],ti=[0,1,2,3,4].filter(i=>m.price[i]!=null);
+  const share=(label,parts)=>`<div class="rq"><span>${label}</span>${parts?mixbar(parts.map(([n,v],i)=>[v,mg[i],n]),'mid')+`<span class="lg">${parts.filter(x=>x[1]).map(([n,v],i)=>`<span><i class="swm" style="background:${mg[parts.findIndex(y=>y[0]===n)]}"></i>${n} <b class="num">${v}%</b></span>`).join('')}</span>`:`<span class="dim">Not reported by ${p.tool}</span>`}</div>`;
+  return`<div class="shares"><div><span class="sh-l">By tool</span>${mixbar(d.tool.map(x=>[x.tot,x.p.col]),'mid')}<span class="lg">${d.tool.map(x=>`<span>${chip(x.p)}${x.p.tool} <b class="num">${Math.round(x.tot/d.tot*100)}%</b></span>`).join('')}</span></div>
+   <div><span class="sh-l">By machine</span>${mixbar(d.mach.map((v,i)=>[v,mg[i]]),'mid')}<span class="lg">${MACH.map((x,i)=>`<span><i class="swm" style="background:${mg[i]}"></i><span class="mono">${x.name}</span> <b class="num">${Math.round(d.mach[i]/d.tot*100)}%</b></span>`).join('')}</span></div></div>
+  <table class="tbl mt"><thead><tr><th>Model</th><th class="r">Requests</th><th class="r">Tokens</th><th>Token mix</th><th class="r">Cache hit</th><th class="r">Out tok/s <small>p50 · p95</small></th><th class="r">TTFT <small>p50 · p95</small></th><th class="r">Errors</th><th class="r">API $</th><th class="r">vs prev.</th></tr></thead><tbody>
+  ${d.rows.map(x=>`<tr class="${x===r?'on':''}${x.tot?'':' zero'}" data-act="app-model" data-val="${x.m.id}"><td>${B('app-model',x.m.id,mi(x.m,16)+sw(x.m)+x.m.name,'rowb',`aria-pressed="${x===r}"`)}</td><td class="num r">${fN(x.req)}</td><td class="num r">${fT(x.tot)}</td><td>${mixbar(ORD.map(i=>[x.t[i],TC[i],TN[i]]))}</td><td class="num r">${x.tot?x.cache.toFixed(1)+'%':'—'}</td><td class="num r">${x.tot?lat(x.tps[0]+' · '+x.tps[1],x.m.q):'—'}</td><td class="num r">${x.tot?lat(x.ttft[0].toFixed(1)+'s · '+x.ttft[1].toFixed(1)+'s',x.m.q):'—'}</td><td class="num r">${x.tot?x.err.toFixed(1)+'%':'—'}</td><td class="num r">${fC(x.cost)}</td><td class="num r tr">${x.tot?(x.trend==null?'—':(x.trend>=0?'▲ ':'▼ ')+Math.abs(x.trend)+'%'):'—'}</td></tr>`).join('')}
+  <tr class="tot"><td>All models</td><td class="num r">${fN(d.req)}</td><td class="num r">${fT(d.tot)}</td><td>${mixbar(ORD.map(i=>[d.t[i],TC[i],TN[i]]))}</td><td class="num r">${d.cache.toFixed(1)}%</td><td></td><td></td><td></td><td class="num r">${fC(d.cost)}</td><td></td></tr></tbody></table>
+  <p class="foot"><span class="lg">${ORD.map(i=>`<span><i class="swm" style="background:${TC[i]}"></i>${TN[i]}</span>`).join('')}</span>${qleg()}</p>
+  <div class="md"><div class="md-h">${mi(m,22)}<h4>${m.name}</h4>${sw(m)}<span class="dim">${p.tool} · ${d.r.lab}</span></div>
+  ${r.tot?`<div class="md-g"><div class="md-c">
+    <div class="cc"><h5>Tokens over time, by type</h5>${stack(ORD.map(i=>r.ser.map(v=>v*r.t[i]/r.tot)),ORD.map(i=>TC[i]),{W:296,H:136,labels:lab,l:38})}</div>
+    <div class="cc"><h5>Cache hit rate</h5>${lineCh(r.cser,{W:296,H:136,labels:lab,col:m.c,l:38})}</div>
+    <div class="cc"><h5>Time to first token<em>${qm(q)}${QS[q]}</em></h5>${histo(r.ttft[0],r.ttft[1],{W:296,H:128,unit:'s',col:m.c,q})}</div>
+    <div class="cc"><h5>Output tokens per second<em>${qm(q)}${QS[q]}</em></h5>${histo(r.tps[0],r.tps[1],{W:296,H:128,unit:'',col:m.c,q})}</div>
+    <p class="quiet wide">${q===1?'Claude Code does not log request timings. These are estimated from log timestamps and cover 78% of requests.':q===2?'Codex records timings per turn. A turn can contain several requests, so these describe whole turns.':'Antigravity records timings for every request.'}</p>
+    <div class="rqs">${sec('Requests by',`<span class="sec-x num">${fN(r.req)} requests</span>`)}<div>${share('Effort',m.eff&&[['low',m.eff[0]],['medium',m.eff[1]],['high',m.eff[2]],['max',m.eff[3]]])}${share('Speed',m.fast!=null&&[['standard',100-m.fast],['fast',m.fast]])}${share('Source',m.sub!=null&&[['main agent',100-m.sub],['subagent',m.sub]])}</div></div></div>
+   <div class="md-r">${sec('Tokens and cost')}<div class="tk">${ti.map(i=>`<div><i class="swm" style="background:${TC[i]}"></i><span>${TN[i]}${i===4?` <em>incl. ${fT(r.rs)} reasoning</em>`:''}</span><span class="num">${fT(r.t[i])}</span><span class="num">${fC(r.t[i]*m.price[i])}</span></div>`).join('')}<div class="tot"><i></i><span>Total</span><span class="num">${fT(r.tot)}</span><span class="num">${fC(r.cost)}</span></div></div>
+    ${sec('By machine')}<div class="brk">${MACH.map((x,i)=>`<div class="bk"><span class="mono">${x.name}</span>${pbar(r.mach[i]/r.tot,m.c)}<span class="num">${fT(r.mach[i])}</span><span class="num">${Math.round(r.mach[i]/r.tot*100)}%</span></div>`).join('')}</div>
+    ${kv([['Error or retry rate',r.err.toFixed(1)+'%'],['Tokens per request',fT(r.tot/r.req)]])}</div></div>`:`<div class="empty"><b>No usage in the ${d.r.lab}</b><span>${m.name} was last used at 11:36. Pick a longer range to see it.</span></div>`}</div>`}
+function mser(i){const R=rng('mach'+i),v=[];for(let k=0;k<48;k++){const d=new Date(+NOW-(48-k)*30*6e4);v.push(i===3&&d.getDate()===25&&d.getHours()*60+d.getMinutes()>324?0:act(d)*(.5+R())+.03)}return v}
+function vMachines(){const tot=sum(D1.mach),d24=build('24h'),d30=build('30d'),r30=i=>sum(d30.rows.map(x=>x.tot?x.req*x.mach[i]/x.tot:0));
+  return`<p class="quiet top">Limits belong to the account and are shared by every machine. A machine shows only its share of usage.</p>
+  <div class="mc">${MACH.map((m,i)=>`<div class="mcr${m.on?'':' off'}"><div class="mc-n"><i class="dot${m.on?'':' no'}"></i><div><b class="mono">${m.name}</b><span>${m.os}</span></div></div>
+   ${kv([['Status',m.on?'Online':'<span class="old-t">Offline</span>'],['Last seen',m.seen],['Live sessions',liveN(m.name)]])}
+   ${kv([['Tokens/h now',m.on?fT(D1.mach[i]):'—'],['Share, last 24h',Math.round(d24.mach[i]/d24.tot*100)+'% · '+fT(d24.mach[i])],['Requests, 30 days',fN(r30(i))]])}
+   ${kv([['Collector',m.col],['Version',m.ver],['Lag',m.lag]])}
+   <div class="mc-s"><span>Activity, last 24h</span>${spark(mser(i),130,30,m.on?'var(--ink)':'var(--ink3)')}</div></div>`).join('')}</div>
+  <div class="row-btn">${B('app-add','1',ico('plus',13)+'Add machine…','btn')}<span class="dim">Remote machines run a small collector and report over SSH. Nothing is sent anywhere else.</span></div>`}
+function vSessions(){const f=S['app-sess'],rows=SESS.filter(s=>f==='all'||(f==='live'?s.live:!s.live));
+  return`<div class="lv-top">${seg('app-sess',[['all','All'],['live','Live'],['recent','Recent']],'Filter')}<span class="dim">${rows.length} sessions</span></div>
+  <table class="tbl st"><thead><tr><th>Project</th><th>Tool</th><th>Model</th><th>Machine</th><th class="r">Duration</th><th class="r">Tokens</th><th>Context window</th><th class="r">Status</th></tr></thead><tbody>
+  ${rows.map(s=>{const m=M(s.m);return`<tr class="${s.stale?'old':''}"><td><b>${s.proj}</b></td><td>${chip(PROV.find(p=>p.tool===s.tool),16)}${s.tool}</td><td>${mi(m,16)}${m.sh}</td><td class="mono">${s.mach}</td><td class="num r">${dur(s.dur)}</td><td class="num r">${s.tok.toFixed(1)}M</td><td><span class="ctx wide">${pbar(s.ctx/100,ctxc(s.ctx))}<span class="num">${s.ctx}%</span></span></td><td class="r">${s.live?'<span class="live"><i class="dot"></i>Live</span>':`<span class="dim num">${s.stale?'last seen ':'ended '}${s.end}</span>`}</td></tr>`}).join('')}</tbody></table>`}
+const tg=(id,key,label)=>`<label class="tg" for="${id}"><input type="checkbox" class="swt" id="${id}" data-bind="${key}"${S[key]?' checked':''}><span>${label}</span></label>`;
+const numf=(id,key)=>`<input class="nf" type="number" id="${id}" data-bind="${key}" min="1" max="100" value="${S[key]}" aria-label="Threshold percent">`;
+const mbPick=a=>`<div class="mbp" role="radiogroup" aria-label="Menu bar item">${MBV.map(([k,n,dsc])=>B(a,k,`<i class="rd"></i><span><b>${n}</b><em>${dsc}</em></span>`,'mbo'+(S[a]===k?' on':''),`role="radio" aria-checked="${S[a]===k}"`)).join('')}</div>`;
+const mbPrev=(a,z=2.5)=>`<div class="mbv"><div class="mbv-s">${menubar(mbItem(S[a]),{mini:1})}</div><div class="mbv-z">${mbItem(S[a],z)}</div><span class="dim">Shown at ${z}×</span></div>`;
+function vSettings(){
+  return`<div class="set">${sec('Menu bar item',B('app-mbpre','quota','Reset to default','lnk'))}${mbEditor()}
+  ${sec('Alerts')}<div class="set-l"><div class="sl">Notify when any limit reaches ${numf('set-t1','t1')}% and again at ${numf('set-t2','t2')}%</div>${tg('set-short','nShort','Warn me when I am on pace to run out before a reset')}${tg('set-reset','nReset','Tell me when a limit I hit has reset')}${tg('set-stale','nStale','Tell me when a machine stops reporting')}</div>
+  ${sec('Subscriptions')}<table class="tbl"><tbody>${PROV.map(p=>`<tr><td>${chip(p,20)}<b>${p.name}</b></td><td>${p.plan}</td><td class="dim">${p.w.length} limit${p.w.length>1?'s':''}${p.credit?' and a credit balance':''} · ${p.stale?'read from the '+p.tool+' app while it is open':`read from <span class="mono">${p.src}</span> on this Mac`}</td><td class="r">${p.stale?`<span class="live old-t"><i class="dot no"></i>Read ${p.stale.ago} ago · open ${p.tool}</span>`:'<span class="live"><i class="dot"></i>Connected</span>'}</td></tr>`).join('')}</tbody></table>
+  ${sec('Machines')}<table class="tbl"><tbody>${MACH.map(m=>`<tr class="${m.on?'':'old'}"><td class="mono"><i class="dot${m.on?'':' no'}"></i>${m.name}</td><td>${m.os}</td><td class="dim">collector ${m.ver} · ${m.col}</td><td class="r dim num">${m.on?'seen '+m.seen:'last seen '+m.seen}</td></tr>`).join('')}</tbody></table>
+  ${sec('API prices, $ per million tokens',B('app-prices','1','Reset to published prices','lnk'))}<table class="tbl pr"><thead><tr><th>Model</th><th class="r">Input</th><th class="r">Cache read</th><th class="r">Cache write 5 min</th><th class="r">Cache write 1 h</th><th class="r">Output</th></tr></thead><tbody>${MODELS.map(m=>`<tr><td>${mi(m,16)}${m.name}</td>${m.price.map((v,i)=>`<td class="r">${v==null?'<span class="dim">—</span>':`<input class="nf pf" type="number" step="0.05" min="0" id="price-${m.id}-${i}" data-price="${m.id}:${i}" value="${v}" aria-label="${m.name} ${TN[i]} price">`}</td>`).join('')}</tr>`).join('')}</tbody></table>
+  <p class="note">Prices are only used to work out what your usage would have cost through the API. Change one and every cost figure follows.</p></div>`}
+const V={overview:vOverview,limits:vLimits,models:vModels,machines:vMachines,sessions:vSessions,settings:vSettings};
+function renderApp(){
+  const v=S['app-view'];
+  return`<div class="win" role="group" aria-label="${APP} main window"><div class="side"><div class="tl"><i></i><i></i><i></i></div>
+   <div class="nav-g">${NAV.map(([k,l,i])=>B('app-view',k,ico(i)+`<span>${l}</span>`+(k==='limits'?`<em class="bdg s-${TOP.state}">${TOP.used}%</em>`:k==='sessions'?`<em class="bdg">${nLive}</em>`:k==='machines'?`<em class="bdg">3/4</em>`:''),'nav-i'+(v===k?' on':''),v===k?'aria-current="page"':'')).join('')}</div>
+   <span class="grow"></span>${B('app-view','settings',ico('set')+'<span>Settings</span>','nav-i'+(v==='settings'?' on':''),v==='settings'?'aria-current="page"':'')}</div>
+  <div class="main"><div class="tb"><h3>${v[0].toUpperCase()+v.slice(1)}</h3><span class="dim">${SUB[v]}</span><span class="grow"></span>${v==='overview'||v==='models'?seg('app-range',RKL,'Range'):''}<span class="upd">Updated ${S['app-age']}</span>${B('app-refresh','1',ico('ref'),'ib','aria-label="Refresh" title="Refresh"')}</div>
+  <div class="body" id="app-body" tabindex="0" role="region" aria-label="${v}">${V[v]()}</div></div></div>`}
+
+/* ============ onboarding ============ */
+const OB=['Welcome','Find tools','Machines','Menu bar','Alerts','Import','Done'];
+const bin=APP.toLowerCase()+'-collector';
+const ntf=(t,b)=>`<div class="ntf">${appIcon(36)}<div class="ntf-b"><div class="ntf-h"><b>${APP}</b><span>now</span></div><b>${t}</b><p>${b}</p></div></div>`;
+const okS=t=>`<span class="stt ok">${ico('chk',12)}${t}</span>`;
+const OBV=[
+ ()=>`<div class="ob-w">${appIcon(72)}<h2>Welcome to ${APP}</h2><p>${APP} sits in your menu bar and shows how much of each AI subscription limit you have used, when it resets, and whether you will run out first. It also keeps usage statistics for every model, on every machine you code on.</p><p class="dim">Setup takes about two minutes. Everything ${APP} reads stays on this Mac.</p><div class="ob-prev">${menubar(mbNow())}</div></div>`,
+ ()=>{const g=+S['ob-grant'];return`<h2>Tools on this Mac</h2><p>${APP} looked for AI coding tools and the subscriptions they are signed in to.</p>
+  <div class="ol">
+   <div class="or">${chip(PROV[0],30)}<div><b>Claude Code</b><span>Signed in · Max 20x · <span class="mono">~/.claude</span></span></div>${okS('Found')}</div>
+   <div class="or">${chip(PROV[1],30)}<div><b>Codex</b><span>Signed in · ChatGPT Pro · <span class="mono">~/.codex</span></span></div>${okS('Found')}</div>
+   <div class="or">${chip(PROV[2],30)}<div><b>Antigravity</b><span>${g?'Signed in · Google AI Ultra · limits can be read while Antigravity is open':'Its sign-in is in the macOS Keychain. macOS will ask you to approve reading it.'}</span></div>${g?okS('Found'):`<span class="stt need">${ico('lock',12)}Needs permission</span>${B('ob-grant','1','Allow…','btn sm')}`}</div>
+   <div class="or off"><span class="pic none"></span><div><b>Gemini CLI</b><span>Not installed. ${APP} will pick it up if you add it later.</span></div><span class="stt">Not found</span></div>
+  </div>
+  <div class="callout">${ico('lock')}<p><b>Your credentials never leave this Mac.</b> ${APP} reads each tool’s existing sign-in locally and uses it only to ask that provider for your current limits. Nothing is copied, uploaded or shared, and ${APP} has no server of its own.</p></div>`},
+ ()=>{const t=+S['ob-test'],rows=[['devbox','Tailnet peer','Connected · 38 ms · Linux x86_64',1,1],['buildbox','Tailnet peer','Connected · 41 ms · Linux x86_64',1,1],['homelab','Tailnet peer','No response after 10 s',0,1],['buildbox','~/.ssh/config','',0,0]];
+  return`<h2>Add your other machines</h2><p>These came from your tailnet and your SSH config. Pick the ones you run coding agents on.</p>
+  <div class="ol">${rows.map(([n,src,res,ok,on],i)=>`<div class="or"><input type="checkbox" class="cb" id="ob-m${i}"${on?' checked':''} aria-label="Include ${n}"><div><b class="mono">${n}</b><span>${src}</span></div>${!on?'<span class="stt">Not selected</span>':!t?'<span class="stt">Not tested</span>':ok?okS(res):`<span class="stt bad">${ico('x',12)}${res}</span>`}</div>`).join('')}</div>
+  <div class="row-btn">${B('ob-test','1',t?'Test again':'Test connections','btn')}<span class="dim">${t?'2 of 3 reachable. Unreachable machines can be added later.':'Uses your existing SSH keys. Nothing is installed yet.'}</span></div>
+  <div class="callout">${ico('mach')}<p><b>What gets installed on each machine.</b> One 6 MB binary, <span class="mono">${bin}</span>, in <span class="mono">~/.local/bin</span>, and a systemd user service. No root. It reads the usage logs your tools already write and sends token counts and timings to this Mac over SSH. It never sends prompts, code or credentials. <span class="mono">${bin} uninstall</span> removes it.</p></div>`},
+ ()=>`<h2>Choose what the menu bar shows</h2><p>You can change this at any time in Settings.</p>${mbPresets()}`,
+ ()=>`<h2>Alerts</h2><p>${APP} can tell you before a limit gets in the way.</p><div class="set-l"><div class="sl">Notify when any limit reaches ${numf('ob-t1','t1')}% and again at ${numf('ob-t2','t2')}%</div>${tg('ob-short','nShort','Warn me when I am on pace to run out before a reset')}${tg('ob-reset','nReset','Tell me when a limit I hit has reset')}${tg('ob-stale','nStale','Tell me when a machine stops reporting')}</div>
+  <div class="ob-n"><span class="dim">Example</span>${ntf('Claude 5-hour limit at 81%',`At this pace you hit the limit at ${when(TOP.hit)}, ${dur(TOP.short)} before it resets at ${when(TOP.reset)}.`)}</div>`,
+ ()=>{const rows=[['macbook-pro','Claude Code',100,'31 days · 6,214 sessions'],['macbook-pro','Codex',100,'31 days · 1,902 sessions'],['macbook-pro','Antigravity',100,'24 days · 688 sessions'],['devbox','All tools',64,'day 20 of 31'],['buildbox','All tools',0,'waiting'],['homelab','All tools',-1,'skipped, unreachable']];
+  return`<h2>Importing your history</h2><p>${APP} is reading the logs your tools already keep, so the charts start with a month of data.</p>
+  <div class="imp-t"><b class="num">71%</b><span class="pb thick"><i style="width:71%;background:var(--accent)"></i></span><span class="dim num">about 40 seconds left</span></div>
+  <div class="ol tight">${rows.map(([m,t,p,n])=>`<div class="or${p<0?' off':''}"><div><b class="mono">${m}</b><span>${t}</span></div><span class="pb"><i style="width:${Math.max(p,0)}%;background:${p===100?'var(--ink2)':'var(--accent)'}"></i></span><span class="stt num${p===100?' ok':''}">${p===100?ico('chk',12):''}${n}</span></div>`).join('')}</div>
+  <p class="dim">You can continue. The import carries on in the background.</p>`},
+ ()=>`<div class="ob-w">${appIcon(72)}<h2>${APP} is running</h2><p>It lives in the menu bar. Click it for limits, models and machines, or open the full window for history.</p><div class="ob-prev">${menubar(mbNow(),{open:0})}</div><div class="set-l center">${tg('ob-login','login','Open '+APP+' at login')}</div></div>`];
+function renderOb(){const s=+S['ob-step'];
+  return`<div class="ob" role="group" aria-label="${APP} setup"><div class="ob-rail"><div class="tl"><i></i><i></i><i></i></div>
+   <ol>${OB.map((t,i)=>`<li>${B('ob-step',i,`<i>${i<s?ico('chk',11):i+1}</i><span>${t}</span>`,'ob-s'+(i===s?' on':i<s?' done':''),i===s?'aria-current="step"':'')}</li>`).join('')}</ol></div>
+  <div class="ob-main"><div class="ob-c">${OBV[s]()}</div><div class="ob-f"><span class="dim num">Step ${s+1} of ${OB.length}</span><span class="grow"></span>${s>0?B('ob-go',s-1,'Back','btn'):''}${s<OB.length-1?B('ob-go',s+1,s===0?'Get started':'Continue','btn pri'):B('ob-go',0,'Open '+APP,'btn pri')}</div></div></div>`}
+
+/* ============ static sections ============ */
+function renderMb(){
+  const cr=mkW('s3','5-hour','5h',300,264,96,9),lm=mkW('s4','5-hour','5h',300,264,100,0),stl=mkW('s5','5-hour','5h',300,200,62,0,{stale:1}),em=mkW('s6','5-hour','5h',300,0,0,0,{idle:1});
+  const sts=[['OK',PROV[1].w[0]],['Warning',TOP],['Critical',cr],['Limited now',lm],['Stale data',stl],['Not started or no data',em]];
+  return`<div class="stage flat">${menubar(mbNow(),{menus:1})}</div>
+  <h3 class="cap">Arrangements</h3><p class="why">The first is the default. The others are starting points offered in Settings and in first-run setup.</p>
+  <div class="mbg two">${Object.entries(MBP).map(([k,[n,d,mk]])=>{const c=mk();return`<div class="mbc"><div class="mbc-z">${mbRow(c,k==='all'?1:k==='quota'?1.7:3)}</div><div class="mbc-s">${menubar(mbRow(c),{mini:1})}</div><h4>${n}</h4><p>${d}</p></div>`}).join('')}</div>
+  <h3 class="cap">Blocks</h3><p class="why">Each block is drawn at 3× and in place at real size. A limit block can follow one subscription or whichever limit is tightest, and can show as a ring, a bar or a figure.</p>
+  <div class="mbg">${Object.entries(MBT).map(([k,[n,d,mk]])=>`<div class="mbc"><div class="mbc-z">${mbRow([mk()],3)}</div><div class="mbc-s">${menubar(mbRow([mk()]),{mini:1})}</div><h4>${n}</h4><p>${d}</p></div>`).join('')}</div>
+  <h3 class="cap">States of the item</h3><p class="why">Template white by default. Colour appears only on the arc or bar for a warning, and on the figure as well once a limit is critical or reached. Stale data dashes the ring and dims the figure instead of using colour.</p>
+  <div class="mbst">${sts.map(([n,w])=>`<div><div class="mbc-z sm">${mbItem('pct',2.5,{w})}</div><span class="lb">${n}</span></div>`).join('')}</div>`}
+function renderStates(){
+  const ag=PROV[2],mk=(...a)=>{const w=mkW(...a);w.p=ag;return w};
+  const list=[['OK',PROV[1].w[0]],['Warning',TOP],['Critical',mk('t3','Gemini models, 5-hour','Gemini models, 5h',300,264,96,9)],['Limited now',mk('t4','Gemini models, 5-hour','Gemini models, 5h',300,264,100,0)],['Stale',PROV[2].w[0]],['Not started',PROV[2].w[2]],['No data yet',mk('t6','Gemini models, 5-hour','Gemini models, 5h',300,4,0,0,{empty:1})]];
+  return`<div class="stage ntf-stage">${menubar(mbNow())}<div class="ntfs">${ntf('Claude 5-hour limit at 81%',`At this pace you hit the limit at ${when(TOP.hit)}, ${dur(TOP.short)} before it resets at ${when(TOP.reset)}.`)}${ntf('Claude weekly Opus limit will run out early',`On pace to hit the limit ${when(PROV[0].w[2].hit)}, ${dur(PROV[0].w[2].short)} before the ${when(PROV[0].w[2].reset)} reset.`)}</div></div>
+  <div class="stg">${list.map(([n,w])=>`<div class="stc mac"><div class="stc-h"><span class="tag s-${w.state}">${n}</span><span class="mbx-w">${mbItem('pct',1.4,{w})}</span></div>
+   <div class="stc-b">${ring([w],{size:66,sw:7,num:pct(w)})}<div class="stc-t"><div class="wr1"><span class="wl">${chip(w.p)} ${w.label}</span><b class="num">${pct(w)}</b></div>${bar(w)}<div class="wr3 s-${w.state}">${verdict(w)}</div></div></div></div>`).join('')}</div>
+  <div class="stage flat pad"><div class="pop empty-pop mac"><div class="pop-h">${appIcon(18)}<b>${APP}</b><span class="grow"></span>${age('no data',1)}</div><div class="empty"><b>Nothing to show yet</b><span>${APP} has not found a signed-in tool on this Mac. Connect a subscription to see its limits here.</span>${B('st-setup','1','Set up '+APP+'…','btn pri')}</div></div></div>`}
+function renderKey(){const demo=PROV[0].w[0];
+  return`<div class="key mac"><span class="kg"><span class="kt">Accounts</span>${PROV.map(p=>`<span>${chip(p)}${p.name}</span>`).join('')}</span>
+  <span class="kg"><span class="kt">Model colours in charts</span>${MODELS.map(m=>`<span>${sw(m)}${m.sh}</span>`).join('')}</span>
+  <span class="kg"><span class="kt">Limit state</span><span>${sd('ok')}OK</span><span>${sd('warn')}Warning</span><span>${sd('crit')}Critical</span><span>${sd('stale')}Stale or not started</span></span>
+  <span class="kg"><span class="kt">Every limit</span><span class="kbar">${bar(demo)}</span><span>solid = used · faint = projected · tick = even pace</span></span>
+  <span class="kg"><span class="kt">Rings</span><span>outer = week · inner = 5-hour</span></span>
+  <span class="kg"><span class="kt">Latency source</span><span>${qm(3)}per request</span><span>${qm(2)}per turn</span><span>${qm(1)}estimated</span></span>
+  <span class="kg"><span class="kt">Data age</span><span>${age('12s')}fresh</span><span>${age('3h ago',1)}stale</span></span></div>`}
+
+/* ============ wiring ============ */
+const OWN={A:['#a-root',renderA],app:['#app-root',renderApp],ob:['#ob-root',renderOb]};
+function draw(k,keep){const o=OWN[k];if(!o)return;const el=$(o[0]),sc=keep&&k==='app'?$('#app-body').scrollTop:0;el.innerHTML=o[1]();if(sc)$('#app-body').scrollTop=sc;if(k==='app'){const m=$('#mbw'),x=$('#mb-live .mbx');if(m&&x)m.textContent=Math.round(x.getBoundingClientRect().width)+' pt'}}
+function mbChanged(pre=''){S.mbPre=pre;draw('A');draw('ob');draw('app',true);$('#mb-root').innerHTML=renderMb();$('#st-root').innerHTML=renderStates()}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-act]');if(!b)return;
+  const a=b.dataset.act,v=b.dataset.val,k=a.split('-')[0],id=b.id;let keep=true;
+  if(a.endsWith('-refresh'))S[k+'-age']='just now';
+  else if(a.endsWith('-open')||a.endsWith('-gear')||a==='st-setup'){const t=a==='st-setup'?'#onboarding':'#app';if(a.endsWith('-gear')){S['app-view']='settings';draw('app')}if(a==='st-setup'){S['ob-step']=0;draw('ob')}
+    $(t).scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});return}
+  else if(a==='ob-go')S['ob-step']=v;
+  else if(a==='app-mbsel')S.mbSel=v;
+  else if(a==='app-mbadd'){const n=nb(MBT[v][2]());S.mb.push(n);S.mbSel=n.id;mbChanged()}
+  else if(a==='app-mbdel'){S.mb=S.mb.filter(x=>x.id!==S.mbSel);S.mbSel=(S.mb[0]||{}).id;mbChanged()}
+  else if(a==='app-mbmv'){const i=S.mb.findIndex(x=>x.id===S.mbSel),j=i+ +v;if(i>=0&&j>=0&&j<S.mb.length){const[x]=S.mb.splice(i,1);S.mb.splice(j,0,x)}mbChanged()}
+  else if(a==='app-mbset'){const[key,val]=v.split(':'),x=S.mb.find(x=>x.id===S.mbSel);if(x)x[key]=val;mbChanged()}
+  else if(a==='app-mbpre'||a==='ob-mbpre'){S.mb=mbMake(v);S.mbSel=S.mb[0].id;mbChanged(v)}
+  else if(a==='A-pick'){S['A-acct']=v;S['A-row']=''}
+  else if(a==='A-row')S[a]=S[a]===v?'':v;
+  else if(a==='app-openp')return;
+  else if(a==='app-add'){$('#onboarding').scrollIntoView();S['ob-step']=2;draw('ob');return}
+  else if(a==='app-prices'){MODELS.forEach(m=>m.price=m.p0.slice());for(const x in _b)delete _b[x];mbChanged(S.mbPre)}
+  else{if(a==='app-view'&&S[a]!==v)keep=false;S[a]=v}
+  draw(k,keep);
+  const f=id&&document.getElementById(id);if(f)f.focus({preventScroll:true})});
+document.addEventListener('change',e=>{const t=e.target;
+  if(t.dataset.bind){S[t.dataset.bind]=t.type==='checkbox'?t.checked:+t.value}
+  else if(t.dataset.price){const[m,i]=t.dataset.price.split(':'),val=Math.max(0,+t.value||0);M(m).price[+i]=val;for(const x in _b)delete _b[x];mbChanged(S.mbPre)}});
+MODELS.forEach(m=>m.p0=m.price.slice());
+$$('[data-app]').forEach(e=>e.textContent=APP);
+$('#key-root').innerHTML=renderKey();
+$('#mb-root').innerHTML=renderMb();
+$('#st-root').innerHTML=renderStates();
+$('#lim-root').innerHTML=renderLim();
+Object.keys(OWN).forEach(k=>draw(k));
+
+/* keyboard for the draggable blocks, which are not buttons so that every browser will drag them */
+document.addEventListener('keydown',e=>{const t=e.target;if((e.key==='Enter'||e.key===' ')&&t.matches&&t.matches('span[role="button"][data-act]')){e.preventDefault();t.click()}});
+/* drag and drop in the menu bar editor: reorder, add from the palette, drag out to remove */
+let DRAG=null;
+document.addEventListener('dragstart',e=>{const t=e.target.closest&&e.target.closest('[data-bid],[data-new]');if(!t)return;
+  DRAG=t.dataset.bid?{id:t.dataset.bid}:{make:t.dataset.new};e.dataTransfer.effectAllowed='copyMove';try{e.dataTransfer.setData('text/plain',t.dataset.bid||t.dataset.new)}catch(_){}
+  requestAnimationFrame(()=>t.classList.add('drag'))});
+document.addEventListener('dragover',e=>{if(!DRAG)return;const z=$('#mbe');if(!z)return;
+  const r=z.getBoundingClientRect(),inside=e.clientX>=r.left-12&&e.clientX<=r.right+12&&e.clientY>=r.top-12&&e.clientY<=r.bottom+12,c=$('.mbe-c',z);
+  DRAG.in=inside;if(!inside){c.hidden=true;z.classList.remove('over');return}
+  e.preventDefault();e.dataTransfer.dropEffect=DRAG.id?'move':'copy';
+  const bs=$$('.mbe-b',z).filter(b=>b.dataset.bid!==DRAG.id);let i=bs.findIndex(b=>{const q=b.getBoundingClientRect();return e.clientX<q.left+q.width/2});if(i<0)i=bs.length;DRAG.idx=i;
+  const ref=bs[i],last=bs[bs.length-1],x=ref?ref.getBoundingClientRect().left-2:last?last.getBoundingClientRect().right+2:r.left+r.width/2;
+  c.hidden=false;c.style.left=(x-r.left+z.scrollLeft)+'px';z.classList.add('over')});
+document.addEventListener('drop',e=>{if(!DRAG||!DRAG.in)return;e.preventDefault();
+  let b;if(DRAG.id){const i=S.mb.findIndex(x=>x.id===DRAG.id);[b]=S.mb.splice(i,1)}else b=nb(MBT[DRAG.make][2]());
+  S.mb.splice(DRAG.idx??S.mb.length,0,b);S.mbSel=b.id;DRAG.done=1});
+document.addEventListener('dragend',()=>{if(!DRAG)return;
+  if(DRAG.id&&!DRAG.done&&DRAG.in===false){S.mb=S.mb.filter(x=>x.id!==DRAG.id);if(S.mbSel===DRAG.id)S.mbSel=(S.mb[0]||{}).id}
+  DRAG=null;mbChanged()});
+})();
+</script>
