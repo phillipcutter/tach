@@ -1,5 +1,8 @@
 # Tach
 
+> [!WARNING]
+> This project was written entirely by Claude, and no human has reviewed the code. Use it at your own risk.
+
 A macOS menu bar app that shows how much of each AI coding subscription you have used, when the limits reset, and whether you will run out first. It also keeps usage statistics for every model, across every machine you code on.
 
 Tach reads the logs that Claude Code, Codex and Antigravity already write. It needs no API keys and no proxy, and nothing leaves your machines.
